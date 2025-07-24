@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Business Enquire Request</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               background-color: #f9f9f9;
+               color: #333;
+               padding: 20px;
+          }
+
+          h1 {
+               color: #0056b3;
+          }
+
+          .container {
+               background-color: #ffffff;
+               padding: 20px;
+               border-radius: 8px;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+               max-width: 600px;
+               margin: auto;
+          }
+
+          .details {
+               margin-top: 20px;
+               padding: 15px;
+               background-color: #e9f5ff;
+               border-radius: 5px;
+          }
+
+          .details p {
+               margin: 5px 0;
+          }
+
+          .details strong {
+               color: #0056b3;
+          }
+
+          .footer {
+               margin-top: 20px;
+               font-size: 0.9em;
+               color: #666;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="container">
+          <h1>Business Enquire</h1>
+          <p>Dear SailSubham,</p>
+          <p>
+               We have received an Enquire request. Below are the details provided by
+               the user:
+          </p>
+
+          <div class="details">
+               <p><strong>Name:</strong>
+                    <%= name %>
+               </p>
+               <p><strong>Contact Number:</strong>
+                    <%=phone %>
+               </p>
+             
+               <p><strong>Email ID:</strong>
+                    <%=email%>
+               </p>
+               <p><strong>Message</strong>
+               <%=message%></p>
+          </div>
+
+          <p>Please follow up with the user at your earliest convenience.</p>
+
+          <div class="footer">
+               <p>Best regards,</p>
+               <p>SailSubham</p>
+          </div>
+     </div>
+</body>
+
+</html>
