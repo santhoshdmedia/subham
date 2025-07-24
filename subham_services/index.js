@@ -19,6 +19,9 @@ app.use(express.json());
 app.get("/health", (req, res) => {
   res.send("Hello World!");
 });
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
 
 const indexRouter = require("./src/routes/index.routes");
 
