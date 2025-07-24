@@ -146,7 +146,7 @@ const [touchEndY, setTouchEndY] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
     const token =
-      localStorage.getItem("token") || sessionStorage.getItem("token");
+      localStorage.getItem("authToken") || sessionStorage.getItem("authToken");
     if (!token) {
       navigate("/new-register"); // Redirect to login if no token found
     }
