@@ -9,7 +9,7 @@ const app = express();
 app.use(morgan("dev"));
 // app.use(cors("dev"));
 app.use(cors({
-  origin: ['https://sailsubham.com/', 'http://sailsubham.com/',"*"],
+  origin: ['https://sailsubham.com', 'http://sailsubham.com',"*"],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
