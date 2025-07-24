@@ -186,7 +186,7 @@ const Register = () => {
       const otpValue = form.otp.join("");
       
       const response = await axios.post(
-        "http://localhost:5058/api/auth/verify-mail-otp",
+        "https://subham-backend-2.onrender.com/api/auth/verify-mail-otp",
         {
           name: form.name,
           email: form.email,
@@ -533,7 +533,7 @@ export const LoginPage = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://subham-backend-2.onrender.com/api/auth/login', {
+      const response = await axios.post('https://subham-backend-2.onrender.com/api/auth/ver', {
         email: formData.email,
         password: formData.password
       });
