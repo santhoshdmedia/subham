@@ -9,9 +9,9 @@ const app = express();
 app.use(morgan("dev"));
 // app.use(cors("dev"));
 app.use(cors({
-  origin: "*",             // Allow all origins
-  methods: "*",           // Allow all HTTP methods
-  allowedHeaders: "*"     // Allow all headers
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
