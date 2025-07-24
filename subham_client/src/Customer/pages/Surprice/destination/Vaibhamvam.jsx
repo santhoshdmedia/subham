@@ -13,7 +13,6 @@ import "swiper/css/navigation";
 import { CaretRightOutlined } from "@ant-design/icons";
 import axios from "axios";
 import Mail from "../mail/Mail";
-import { useNavigate } from "react-router-dom";
 
 const { useToken } = theme;
 
@@ -24,7 +23,6 @@ const Vaibhamvam = () => {
   const [loading, setLoading] = useState(false);
   const { token } = useToken();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -45,13 +43,6 @@ const Vaibhamvam = () => {
       setDestination(result[0]);
     }
   }, [location]);
-  useEffect(() => {
-    const token =
-      localStorage.getItem("token") || sessionStorage.getItem("token");
-    if (!token) {
-      navigate("/new-register"); // Redirect to login if no token found
-    }
-  }, [navigate]);
 
   useEffect(() => {
     // console.log(id);

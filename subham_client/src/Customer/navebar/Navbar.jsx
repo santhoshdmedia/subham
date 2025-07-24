@@ -292,7 +292,7 @@ export const SurpriceNav=()=>{
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     setIsLoggedIn(true);
 
     const handleScroll = () => {
@@ -394,7 +394,7 @@ export const SurpriceNav=()=>{
     setOpen(false);
   };
   const handleLogOut=()=>{
-    localStorage.removeItem('token')
+    localStorage.removeItem('authToken')
     setIsLoggedIn(false)
     window.location.reload();
   }

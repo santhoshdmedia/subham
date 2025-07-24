@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./mail.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const Mail = (packageName) => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const Mail = (packageName) => {
     package: packageName.packageName || "",
   });
   const navigate = useNavigate();
-  
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -27,7 +28,6 @@ const Mail = (packageName) => {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
- 
 
   const validate = () => {
     const newErrors = {};
@@ -57,11 +57,6 @@ const Mail = (packageName) => {
         "https://subham-backend-2.onrender.com/api/auth/send-inquiry",
         formData
       );
-      setSubmitStatus({
-        success: true,
-        message:
-          "Thank you! Your inquiry has been submitted successfully. We will get back to you within 24 hours.",
-      });
       setFormData({
         name: "",
         email: "",
@@ -69,6 +64,12 @@ const Mail = (packageName) => {
         message: "",
         package: "",
       });
+      toast.success(
+        "Thank you! Your inquiry has been submitted successfully. We will get back to you within 24 hours."
+      );
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus({
@@ -174,15 +175,15 @@ const Mail = (packageName) => {
                 Select Package*
               </label>
               <input
-                  type="text"
-                  id="package"
-                  name="phone"
-                  value={formData.package}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm p-3 border"
-                  placeholder="+91 6379*******"
-                  readOnly
-                />
+                type="text"
+                id="package"
+                name="phone"
+                value={formData.package}
+                onChange={handleChange}
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm p-3 border"
+                placeholder="+91 6379*******"
+                readOnly
+              />
               {errors.package && (
                 <p className="mt-1 text-sm text-red-600">
                   Please select a package
@@ -253,6 +254,7 @@ const Mail = (packageName) => {
           </form>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };

@@ -8,9 +8,26 @@ const app = express();
 
 app.use(morgan("dev"));
 // app.use(cors("dev"));
+
+const allowedOrigins = [
+  'https://sailsubham.com',        // Your production domain
+  'http://62.72.58.252',           // Your VPS IP (HTTP)
+  'https://62.72.58.252',          // Your VPS IP (HTTPS)
+  'http://localhost:8000',         // Local development
+];
 app.use(cors({
-  origin: ["*"],
-  methods: ['GET', 'POST'],
+ origin: function (origin, callback) {
+    // Allow requests with no origin (e.g., mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+    
+    // Check if the origin is in the allowed list
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Blocked by CORS'));
+    }
+  },
+  methods: '*',
   allowedHeaders: ['Content-Type']
 }));
 

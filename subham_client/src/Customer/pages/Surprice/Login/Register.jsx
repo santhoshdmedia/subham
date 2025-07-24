@@ -1,16 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
-import { ToastContainer,toast } from "react-toastify";
-import { motion } from 'framer-motion';
-import {  Loader2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./register.css"
-
-
-
-
+import "./register.css";
 
 const Register = () => {
   // Form state
@@ -26,7 +22,7 @@ const Register = () => {
   const [timeLeft, setTimeLeft] = useState(300);
   const [canResendOtp, setCanResendOtp] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Refs
   const otpInputRefs = useRef([]);
   const timerRef = useRef(null);
@@ -54,13 +50,15 @@ const Register = () => {
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+    return `${mins.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   // Handle OTP input changes
   const handleOtpChange = (e, index) => {
     const value = e.target.value.replace(/\D/g, "").slice(0, 1);
-    
+
     const newOtp = [...form.otp];
     newOtp[index] = value;
     setForm((prev) => ({ ...prev, otp: newOtp }));
@@ -98,7 +96,7 @@ const Register = () => {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await axios.post(
         "https://subham-backend-2.onrender.com/api/auth/send-mail-otp",
@@ -124,10 +122,10 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const otpValue = form.otp.join("");
-      
+
       const response = await axios.post(
         "https://subham-backend-2.onrender.com/api/auth/verify-mail-otp",
         {
@@ -140,24 +138,30 @@ const Register = () => {
 
       if (response.data.success) {
         // Store token in localStorage
-        localStorage.setItem('authToken', response.data.token);
-        
+        localStorage.setItem("authToken", response.data.token);
+
         setForm((prev) => ({
           ...prev,
           showOtpField: false,
           verificationStatus: "success",
           userData: response.data.user,
         }));
-        
+
         stopTimer();
-        toast.success(response.data.isNewUser ? "Registration successful!" : "Welcome back!");
-        navigate('/vasan-tour-package');
+        toast.success(
+          response.data.isNewUser ? "Registration successful!" : "Welcome back!"
+        );
+        setTimeout(() => {
+          navigate("/vasan-tour-package");
+        }, 3000);
       } else {
         toast.warn(`Verification failed: ${response.data.error}`);
       }
     } catch (error) {
       console.error("Verification error:", error);
-      toast.error(error.response?.data?.error || "An error occurred during verification");
+      toast.error(
+        error.response?.data?.error || "An error occurred during verification"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -182,8 +186,14 @@ const Register = () => {
     <div className="min-h-[100vh] flex items-center justify-center register_page">
       <div className="w-full max-w-md mx-4">
         {/* Card Header */}
-        <div className="text-center py-6 px-4 rounded-t-lg" style={{ backgroundColor: colors.primary }}>
-          <h2 className="text-3xl font-bold" style={{ color: colors.lightText }}>
+        <div
+          className="text-center py-6 px-4 rounded-t-lg"
+          style={{ backgroundColor: colors.primary }}
+        >
+          <h2
+            className="text-3xl font-bold"
+            style={{ color: colors.lightText }}
+          >
             Create Your Account
           </h2>
           <p className="mt-2" style={{ color: "#f3d9b8" }}>
@@ -197,7 +207,11 @@ const Register = () => {
             <div className="space-y-4">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1" style={{ color: colors.text }}>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-1"
+                  style={{ color: colors.text }}
+                >
                   Full Name
                 </label>
                 <input
@@ -215,7 +229,11 @@ const Register = () => {
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1" style={{ color: colors.text }}>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-1"
+                  style={{ color: colors.text }}
+                >
                   Email Address
                 </label>
                 <input
@@ -233,12 +251,18 @@ const Register = () => {
 
               {/* Phone Field */}
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-1" style={{ color: colors.text }}>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium mb-1"
+                  style={{ color: colors.text }}
+                >
                   Phone Number
                 </label>
                 <div className="flex">
-                  <span className="inline-flex items-center px-4 py-3 rounded-l-lg border border-r-0" 
-                    style={{ borderColor: colors.primaryLight }}>
+                  <span
+                    className="inline-flex items-center px-4 py-3 rounded-l-lg border border-r-0"
+                    style={{ borderColor: colors.primaryLight }}
+                  >
                     +91
                   </span>
                   <input
@@ -258,7 +282,11 @@ const Register = () => {
               {/* OTP Field */}
               {form.showOtpField && (
                 <div className="space-y-3">
-                  <label htmlFor="otp" className="block text-sm font-medium" style={{ color: colors.text }}>
+                  <label
+                    htmlFor="otp"
+                    className="block text-sm font-medium"
+                    style={{ color: colors.text }}
+                  >
                     OTP Verification
                   </label>
                   <div className="flex space-x-3 justify-center">
@@ -278,8 +306,14 @@ const Register = () => {
                     ))}
                   </div>
                   <div className="flex justify-between items-center pt-1">
-                    <span className={`text-sm ${timeLeft > 0 ? "text-gray-500" : "text-red-500"}`}>
-                      {timeLeft > 0 ? `Expires in ${formatTime(timeLeft)}` : "OTP expired"}
+                    <span
+                      className={`text-sm ${
+                        timeLeft > 0 ? "text-gray-500" : "text-red-500"
+                      }`}
+                    >
+                      {timeLeft > 0
+                        ? `Expires in ${formatTime(timeLeft)}`
+                        : "OTP expired"}
                     </span>
                     {canResendOtp && (
                       <button
@@ -342,7 +376,6 @@ const Register = () => {
           </form>
 
           {/* Footer Links */}
-          
         </div>
       </div>
       <ToastContainer position="top-right" autoClose={5000} />
@@ -352,49 +385,50 @@ const Register = () => {
 
 export default Register;
 
-
-
 export const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const response = await axios.post('https://subham-backend-2.onrender.com/api/auth/ver', {
-        email: formData.email,
-        password: formData.password
-      });
+      const response = await axios.post(
+        "https://subham-backend-2.onrender.com/api/auth/ver",
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       if (response.data.success) {
         // Store user data or token as needed
-        localStorage.setItem('token', JSON.stringify(response.data.token));
-        
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+
         // Redirect to dashboard or home page
-        navigate('/influencer-page');
-        toast.success("login successful")
+        navigate("/influencer-page");
+        toast.success("login successful");
       } else {
-        setError(response.data.error || 'Login failed');
+        setError(response.data.error || "Login failed");
       }
     } catch (err) {
-      setError(err.response?.data?.error || 'An error occurred during login');
+      setError(err.response?.data?.error || "An error occurred during login");
     } finally {
       setLoading(false);
     }
@@ -402,7 +436,7 @@ export const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center p-4 login_page">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -416,7 +450,7 @@ export const LoginPage = () => {
         >
           {/* Header */}
           <div className="bg-orange-500 py-6 px-8 text-center">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -454,7 +488,10 @@ export const LoginPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email Address
                 </label>
                 <input
@@ -475,14 +512,17 @@ export const LoginPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Password
                 </label>
                 <div className="relative">
                   <input
                     id="password"
                     name="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     required
                     value={formData.password}
                     onChange={handleChange}
@@ -506,8 +546,8 @@ export const LoginPage = () => {
                 transition={{ delay: 0.6 }}
                 className="text-right"
               >
-                <a 
-                  href="/forgot-password" 
+                <a
+                  href="/forgot-password"
                   className="text-sm text-orange-600 hover:underline"
                 >
                   Forgot password?
@@ -531,7 +571,7 @@ export const LoginPage = () => {
                       Signing in...
                     </>
                   ) : (
-                    'Sign In'
+                    "Sign In"
                   )}
                 </button>
               </motion.div>
@@ -545,9 +585,9 @@ export const LoginPage = () => {
               className="mt-6 text-center"
             >
               <p className="text-sm text-gray-600">
-                Don't have an account?{' '}
-                <Link 
-                  to={"/new-register"} 
+                Don't have an account?{" "}
+                <Link
+                  to={"/new-register"}
                   className="text-orange-600 font-medium hover:underline"
                 >
                   Sign up
@@ -557,7 +597,7 @@ export const LoginPage = () => {
           </div>
         </motion.div>
       </motion.div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
