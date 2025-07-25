@@ -13,7 +13,7 @@ const Enquiry = () => {
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
-        const response = await axios.get('http://localhost:5058/api/auth/inquiries');
+        const response = await axios.get('https://subham-backend-2.onrender.com/api/auth/inquiries');
         setInquiries(response.data.inquiries);
       } catch (err) {
         setError(err.message || 'Failed to fetch inquiries');
@@ -51,7 +51,7 @@ const Enquiry = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 h-[80vh]">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Inquiry Management</h1>
+      <h1 className="text-3xl font-bold text-gray-800 py-6">Inquiry Management</h1>
       
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div className="flex items-center space-x-4">
