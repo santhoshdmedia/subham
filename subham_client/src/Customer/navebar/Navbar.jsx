@@ -401,7 +401,7 @@ export const SurpriceNav=()=>{
 
   return (
     <div className="h-[60px] w-screen text-sm bg-[#ffffff85] center_div justify-between  px-5 md:px-10 lg:px-20 fixed">
-      <Link to="/influencer-page" className="lg:w-[31%] flex justify-start items-start">
+      <Link to="/vasan-tour-package" className="lg:w-[31%] flex justify-start items-start">
         <img src={IMAGE_HELPER.SubhamLogo} alt="logo" className="w-[100px] md:w-[140px]" />
       </Link>
 
