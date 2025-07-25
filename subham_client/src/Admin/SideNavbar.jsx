@@ -137,6 +137,33 @@ const SideNavbar = () => {
               );
             })}
           </div>
+             <div className="flex flex-col gap-3">
+
+          <Menu.Item
+            className={`${"/hero-page" === path ? "!bg-primary" : "!bg-white"}`}
+          >
+            <Link
+              to={"/hero-page" || "#"}
+              className={`${
+                "/hero-page" === path ? "!text-white" : "!text-secondary"
+              } !font-primary_font`}
+            >
+              hero
+            </Link>
+          </Menu.Item>
+          <Menu.Item
+            className={`${"/admin-packages" === path ? "!bg-primary" : "!bg-white"}`}
+          >
+            <Link
+              to={"/admin-packages" || "#"}
+              className={`${
+                "/admin-packages" === path ? "!text-white" : "!text-secondary"
+              } !font-primary_font`}
+            >
+              Packages
+            </Link>
+          </Menu.Item>
+          </div>
         </Menu>
       </div>
     </Spin>
