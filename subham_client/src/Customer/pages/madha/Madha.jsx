@@ -290,7 +290,12 @@ const included_excluded = [
   },
   {
     type: "included",
-    description: "Only breakfast",
+    description: "only breakfast",
+    _id: "687b51baab00690f1d74a602",
+  },
+  {
+    type: "included",
+    description: "Double / Triple-sharing accommodations upon availability in a two-star hotel",
     _id: "687b51baab00690f1d74a602",
   },
   {
@@ -395,12 +400,12 @@ const Madha = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="absolute top-[4rem] left-4  z-10 px-4 text-center"
+          className="absolute top-[4rem] lg:top-1/3 left-4  z-10 px-4 text-center"
         >
           <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
             Walk with the Divine
           </h1>
-          <p className="text-lg md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
+          <p className="text-md md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
             Guided Pilgrimage to Our Lady of Madhu
           </p>
         </motion.div>
