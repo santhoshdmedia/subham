@@ -21,10 +21,11 @@ import Settings from "../Admin/pages/settings/Settings";
 import HeroPage from "../Admin/pages/Hero/HeroPage";
 import Vasan from "../Customer/surprice/Vasan";
 import Register from "../Customer/pages/Surprice/Login/Register";
-import { LoginPage } from "../Customer/pages/Surprice/Login/Register";
+import { LoginPage,MadhaRegister } from "../Customer/pages/Surprice/Login/Register";
 import Mail from "../Customer/pages/Surprice/mail/Mail";
 import Enquiry from "../Customer/pages/Surprice/enquirey/Enquirey";
 import Vaibhamvam from "../Customer/pages/Surprice/destination/Vaibhamvam";
+import Madha from "../Customer/pages/madha/Madha";
 
 // landing page
 let client_routes = [
@@ -104,9 +105,9 @@ let client_routes = [
     children: [{ path: "/new-register", element: <Register /> }],
   },
   {
-    path: "/new-login",
+    path: "/madha-register",
     element: <CustomerLayout />,
-    children: [{ path: "/new-login", element: <LoginPage /> }],
+    children: [{ path: "/madha-register", element: <MadhaRegister /> }],
   },
   {
     path: "/Enquirey",
@@ -122,6 +123,11 @@ let client_routes = [
     path: "/vaibhavam/:id",
     element: <CustomerLayout />,
     children: [{ path: "/vaibhavam/:id", element: <Vaibhamvam /> }],
+  },
+  {
+    path: "/payanam/groupmadhu",
+    element: <CustomerLayout />,
+    children: [{ path: "/payanam/groupmadhu", element: <Madha /> }],
   },
 ];
 
