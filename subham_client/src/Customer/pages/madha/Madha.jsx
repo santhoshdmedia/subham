@@ -386,12 +386,12 @@ const Madha = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="absolute bottom-0 left-[30%] lg:left-[40%]  z-10"
+          className="absolute bottom-0 left-[30%] lg:left-[38%]  z-10"
         >
           <img
             src={madha}
             alt="Madha"
-            className="h-[200px] md:h-[700px] object-contain"
+            className="h-[200px] md:h-[500px] object-contain"
           />
         </motion.div>
 
@@ -402,7 +402,7 @@ const Madha = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="absolute top-[4rem] lg:top-1/3 left-4  z-10 px-4 text-center"
         >
-          <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
+          <h1 className="text-2xl md:text-6xl lg:text-5xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
             Walk with the Divine
           </h1>
           <p className="text-md md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
@@ -415,7 +415,7 @@ const Madha = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="hidden lg:block absolute top-1/3 right-4  z-10 px-4 text-center "
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl lg:text-5xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
             Book Now for 2025!
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
