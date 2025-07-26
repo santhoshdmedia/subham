@@ -169,7 +169,6 @@ const basilicaTour = {
           activity_icon: "explore",
           attractions: [
             "Keerimalai Springs (optional bath)",
-            "Naguleeswaram Temple",
           ],
         },
         {
@@ -364,7 +363,7 @@ const Madha = () => {
         >
           {Madha_imag.map((img) => (
             <SwiperSlide key={img.id}>
-              <div className="w-full h-[80vh] overflow-hidden relative">
+              <div className="w-full h-[50vh] lg:h-[80vh] overflow-hidden relative">
                 <img
                   src={img.src}
                   alt={img.name}
@@ -382,12 +381,12 @@ const Madha = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="absolute bottom-0 left-[40%]  z-10"
+          className="absolute bottom-0 left-[30%] lg:left-[40%]  z-10"
         >
           <img
             src={madha}
             alt="Madha"
-            className="h-[600px] md:h-[700px] object-contain"
+            className="h-[200px] md:h-[700px] object-contain"
           />
         </motion.div>
 
@@ -396,12 +395,12 @@ const Madha = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="absolute top-1/3 left-4  z-10 px-4 text-center"
+          className="absolute top-[4rem] left-4  z-10 px-4 text-center"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
+          <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
             Walk with the Divine
           </h1>
-          <p className="text-xl md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl font-semibold text-white mt-4 max-w-3xl mx-auto">
             Guided Pilgrimage to Our Lady of Madhu
           </p>
         </motion.div>
@@ -409,7 +408,7 @@ const Madha = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="absolute top-1/3 right-4  z-10 px-4 text-center "
+          className="hidden lg:block absolute top-1/3 right-4  z-10 px-4 text-center "
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#f5f5f5] to-[#f5f5f5] bg-clip-text text-transparent drop-shadow-lg">
             Book Now for 2025!
@@ -442,7 +441,7 @@ const Madha = () => {
               variants={slideUp}
               className="flex flex-col bg-white p-4 rounded-xl "
             >
-              <div className="flex items-center justify-between w-full text-xl font-semibold text-primary">
+              <div className="flex flex-col gap-4 lg:flex-row items-center justify-between lg:w-full lg:text-xl text-lg w-[80%] font-semibold text-primary">
                 <div>
                   {"INR"}&nbsp;
                   {Number(22500 || 0).toFixed(2)}
@@ -693,9 +692,9 @@ const Madha = () => {
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8"
+        className="bg-gray-50 py-16 px-20 sm:px-6 lg:px-8"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full lg:max-w-7xl mx-auto">
           <motion.h2
             variants={slideUp}
             className="text-3xl font-bold text-center text-primary mb-12"

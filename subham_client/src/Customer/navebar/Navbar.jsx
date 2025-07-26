@@ -625,52 +625,6 @@ export const MaddhaNav=()=>{
         {/* <DisplayCustomDropDown items={NavbarLinks} mobile_view={true} /> */}
       </Drawer>
 
-      <div className="lg:w-[31%] flex items-center justify-end gap-5">
-         {isLoggedIn?
-         <>
-         <button className="bg-primary text-white rounded px-3 py-1"
-         onClick={handleLogOut}
-         >
-          Logout
-         </button>
-         </>: <>
-       
-        <div className="hidden xl:block">
-          <Link to={"/Madha-register"} className="bg-primary text-white rounded px-3 py-1">
-            Sign Up
-          </Link>
-        </div>
-          </>}
-        {/* {isLoggedIn ? (
-          <div className="hidden lg:flex items-center gap-2">
-            <Button
-              type="default"
-              onClick={() => {
-                localStorage.removeItem(adminToken);
-                setIsLoggedIn(false);
-                setuser(null);
-                navigate("/admin-packages");
-              }}
-              className="bg-primary text-white "
-            >
-              Admin Live
-            </Button>
-          </div>
-        ) : (
-          <div className="hidden lg:block">
-            <Link to={"/agent-login"} className="bg-primary text-white rounded px-3 py-1">
-              Admin Login
-            </Link>
-          </div>
-        )} */}
-        <div
-          className="hidden cursor-pointer"
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          <ICON_HELPER.HAMBURGER_MENU_ICON />
-        </div>
-      </div>
+    
     </div>)
 }
