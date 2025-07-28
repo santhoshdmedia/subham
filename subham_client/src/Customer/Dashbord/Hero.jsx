@@ -53,12 +53,12 @@ const Hero = () => {
         setPopData(popDataFetched);
         setTravelPackages(_.get(pkgResult, "data.data", []));
 
-        // Always show popup (with welcome message if no custom message exists)
-        setTimeout(() => setOpen(true), 2000);
+        // Only show popup if there's a message available
+        if (popDataFetched.length > 0 && popDataFetched[0].pop_message) {
+          setTimeout(() => setOpen(true), 2000);
+        }
       } catch (err) {
         console.error(err);
-        // Show popup even if there's an error
-        setTimeout(() => setOpen(true), 2000);
       } finally {
         setLoading(false);
       }
@@ -230,46 +230,44 @@ const Hero = () => {
         </Modal>
       )}
 
-      {/* Welcome/Popup Modal */}
-      <Modal 
-        open={open} 
-        onCancel={() => setOpen(false)} 
-        className="lg:!w-[50%] popup !rounded-none !relative" 
-        footer={null} 
-        closable={false}
-      >
-        <div className="bg-gradient-to-br from-primary to-secondary rounded-xl p-8 text-white shadow-2xl space-y-4">
-          <h1 className="text-2xl text-center">
-            {popData.length > 0 && popData[0].pop_message ? (
+      {/* Welcome/Popup Modal - Only shown if popData has a message */}
+      {popData.length > 0 && popData[0].pop_message && (
+        <Modal 
+          open={open} 
+          onCancel={() => setOpen(false)} 
+          className="lg:!w-[50%] popup !rounded-none !relative" 
+          footer={null} 
+          closable={false}
+        >
+          <div className="bg-gradient-to-br from-primary to-secondary rounded-xl p-8 text-white shadow-2xl space-y-4">
+            <h1 className="text-2xl text-center">
               <span dangerouslySetInnerHTML={{ __html: popData[0].pop_message }} />
-            ) : (
-              "Welcome to Our Website!"
-            )}
-          </h1>
-          <div className="flex justify-between items-center pt-4">
-            <div>
-              Need Help?{" "}
-              <Link to="/contact" className="text-white underline">
-                Contact Us
-              </Link>
-            </div>
-            <div className="hidden lg:flex gap-2">
-              <button 
-                onClick={() => setOpen(false)} 
-                className="border border-white py-1 px-4 rounded hover:bg-primary transition"
-              >
-                Close
-              </button>
+            </h1>
+            <div className="flex justify-between items-center pt-4">
+              <div>
+                Need Help?{" "}
+                <Link to="/contact" className="text-white underline">
+                  Contact Us
+                </Link>
+              </div>
+              <div className="hidden lg:flex gap-2">
+                <button 
+                  onClick={() => setOpen(false)} 
+                  className="border border-white py-1 px-4 rounded hover:bg-primary transition"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div 
-          onClick={() => setOpen(false)} 
-          className="absolute top-2 right-2 size-8 bg-primary rounded-full flex items-center justify-center text-white lg:hidden cursor-pointer"
-        >
-          <ICON_HELPER.CROSS_ICON />
-        </div>
-      </Modal>
+          <div 
+            onClick={() => setOpen(false)} 
+            className="absolute top-2 right-2 size-8 bg-primary rounded-full flex items-center justify-center text-white lg:hidden cursor-pointer"
+          >
+            <ICON_HELPER.CROSS_ICON />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };
