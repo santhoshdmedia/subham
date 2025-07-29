@@ -9,6 +9,8 @@ const Enquiry = () => {
   const [filter, setFilter] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
   const [selectedInquiry, setSelectedInquiry] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchInquiries = async () => {
@@ -46,11 +48,34 @@ const Enquiry = () => {
     return 0;
   });
 
+  // Get current inquiries for pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentInquiries = sortedInquiries.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(sortedInquiries.length / itemsPerPage);
+
+  const changePage = (pageNumber) => setCurrentPage(pageNumber);
+
+  const getStatusOptions = (currentStatus) => {
+    const options = [
+      { value: 'new', label: 'New' },
+      { value: 'in_progress', label: 'In Progress' },
+      { value: 'resolved', label: 'Resolved' }
+    ];
+    
+    return options.map(option => ({
+      ...option,
+      disabled: 
+        (currentStatus === 'in_progress' && option.value === 'new') ||
+        (currentStatus === 'resolved')
+    }));
+  };
+
   if (loading) return <div className="text-center py-8">Loading inquiries...</div>;
   if (error) return <div className="text-center py-8 text-red-500">Error: {error}</div>;
 
   return (
-    <div className="container mx-auto px-4 py-8 h-[80vh]">
+    <div className="container mx-auto px-4 py-8 min-h-[80vh]">
       <h1 className="text-3xl font-bold text-gray-800 py-6">Inquiry Management</h1>
       
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -58,7 +83,10 @@ const Enquiry = () => {
           <label className="text-sm font-medium text-gray-700">Filter:</label>
           <select
             value={filter}
-            onChange={(e) => setFilter(e.target.value)}
+            onChange={(e) => {
+              setFilter(e.target.value);
+              setCurrentPage(1);
+            }}
             className="rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm"
           >
             <option value="all">All Inquiries</option>
@@ -72,7 +100,10 @@ const Enquiry = () => {
           <label className="text-sm font-medium text-gray-700">Sort By:</label>
           <select
             value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
+            onChange={(e) => {
+              setSortBy(e.target.value);
+              setCurrentPage(1);
+            }}
             className="rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm"
           >
             <option value="newest">Newest First</option>
@@ -81,11 +112,12 @@ const Enquiry = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow overflow-hidden rounded-lg">
+      <div className="bg-white shadow overflow-hidden rounded-lg mb-6 h-[50vh]">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Package</th>
@@ -96,9 +128,12 @@ const Enquiry = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {sortedInquiries.length > 0 ? (
-                sortedInquiries.map((inquiry) => (
+              {currentInquiries.length > 0 ? (
+                currentInquiries.map((inquiry, index) => (
                   <tr key={inquiry._id} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-gray-900">{indexOfFirstItem + index + 1}</div>
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="font-medium text-gray-900">{inquiry.name}</div>
                     </td>
@@ -140,16 +175,22 @@ const Enquiry = () => {
                         onChange={(e) => updateStatus(inquiry._id, e.target.value)}
                         className="rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm"
                       >
-                        <option value="new">New</option>
-                        <option value="in_progress">In Progress</option>
-                        <option value="resolved">Resolved</option>
+                        {getStatusOptions(inquiry.status).map(option => (
+                          <option 
+                            key={option.value} 
+                            value={option.value}
+                            disabled={option.disabled}
+                          >
+                            {option.label}
+                          </option>
+                        ))}
                       </select>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="7" className="px-6 py-4 text-center text-gray-500">
+                  <td colSpan="8" className="px-6 py-4 text-center text-gray-500">
                     No inquiries found
                   </td>
                 </tr>
@@ -159,10 +200,80 @@ const Enquiry = () => {
         </div>
       </div>
 
+      {/* Pagination */}
+      {sortedInquiries.length > itemsPerPage && (
+        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+          <div className="flex flex-1 justify-between sm:hidden">
+            <button
+              onClick={() => changePage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Previous
+            </button>
+            <button
+              onClick={() => changePage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Next
+            </button>
+          </div>
+          <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm text-gray-700">
+                Showing <span className="font-medium">{indexOfFirstItem + 1}</span> to{' '}
+                <span className="font-medium">
+                  {Math.min(indexOfLastItem, sortedInquiries.length)}
+                </span>{' '}
+                of <span className="font-medium">{sortedInquiries.length}</span> results
+              </p>
+            </div>
+            <div>
+              <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                <button
+                  onClick={() => changePage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
+                >
+                  <span className="sr-only">Previous</span>
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                  <button
+                    key={page}
+                    onClick={() => changePage(page)}
+                    className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+                      currentPage === page 
+                        ? 'bg-orange-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600'
+                        : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  onClick={() => changePage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
+                >
+                  <span className="sr-only">Next</span>
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l4.5 4.25a.75.75 0 11-1.04 1.08L11.168 10l3.938 3.71a.75.75 0 01-.02 1.06z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Modal for full message view */}
       {selectedInquiry && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 h-[70vh] overflow-scroll relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 ">
+          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 max-h-[80vh] overflow-auto relative">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-lg font-medium text-gray-900">{selectedInquiry.name}'s Inquiry</h3>
               <button 
@@ -191,13 +302,37 @@ const Enquiry = () => {
               )}
               <div>
                 <p className="text-sm text-gray-500">Message</p>
-                <p className="text-gray-900 whitespace-pre-line text-wrap w-[500px]">{selectedInquiry.message}</p>
+                <p className="text-gray-900 whitespace-pre-line">{selectedInquiry.message}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Submitted On</p>
                 <p className="text-gray-900">
                   {format(new Date(selectedInquiry.createdAt), 'MMMM dd, yyyy hh:mm a')}
                 </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Status</p>
+                <select
+                  value={selectedInquiry.status}
+                  onChange={(e) => {
+                    updateStatus(selectedInquiry._id, e.target.value);
+                    setSelectedInquiry({
+                      ...selectedInquiry,
+                      status: e.target.value
+                    });
+                  }}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-sm"
+                >
+                  {getStatusOptions(selectedInquiry.status).map(option => (
+                    <option 
+                      key={option.value} 
+                      value={option.value}
+                      disabled={option.disabled}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
