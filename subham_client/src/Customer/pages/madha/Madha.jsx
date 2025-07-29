@@ -525,7 +525,7 @@ const Madha = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="p-3 bg-white rounded-md shadow-sm border border-blue-100">
                       <div className="flex items-center gap-2">
-                        <span className="bg-primary text-white px-2 py-1 rounded-full text-sm w-[100px] lg:w-fit ">
+                        <span className="bg-primary text-white px-2 py-1 rounded-full text-sm w-[110px] lg:w-fit ">
                           Batch 1
                         </span>
                         <span className="font-medium">26 September - 28 September, 2025</span>

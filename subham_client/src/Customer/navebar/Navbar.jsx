@@ -604,7 +604,7 @@ export const MaddhaNav=()=>{
   }
 
   return (
-    <div className="h-[60px] w-screen text-sm bg-[#ffffff85] center_div justify-between  px-5 md:px-10 lg:px-20 fixed">
+    <div className="h-[60px] w-screen text-sm bg-[#ffffff85] center_div justify-between  px-5 md:px-10 lg:px-20 fixed top-0">
       <Link to="/payanam/groupmadhu" className="lg:w-[31%] flex justify-start items-start">
         <img src={IMAGE_HELPER.SubhamLogo} alt="logo" className="w-[100px] md:w-[140px]" />
       </Link>
