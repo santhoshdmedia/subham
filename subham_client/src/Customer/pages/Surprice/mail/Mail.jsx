@@ -331,7 +331,7 @@ export const Madhamail = () => {
       );
       setTimeout(() => {
         window.location.reload()
-      }, 3000);
+      }, 1000);
       
     } catch (error) {
       console.error("Submission error:", error);
@@ -428,8 +428,8 @@ export const Madhamail = () => {
             }`}
           >
             <option value="">Select your batch</option>
-            <option value="Batch 1: July 26-28, 2025">Batch 1: July 26-28, 2025</option>
-            <option value="Batch 2: July 28-31, 2025">Batch 2: July 28-31, 2025</option>
+            <option value="Batch 1: July 26-28, 2025">Batch 1: September 26- September 28, 2025</option>
+            <option value="Batch 2: July 28-31, 2025">Batch 2: September 29- October 1, 2025</option>
           </select>
           {errors.package && <p className="mt-1 text-sm text-red-600">{errors.package}</p>}
         </div>
@@ -443,6 +443,7 @@ export const Madhamail = () => {
             name="message"
             rows={5}
             value={formData.message}
+            
             onChange={handleChange}
             className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
               errors.message ? "border-red-500" : "border-gray-300"

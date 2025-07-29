@@ -161,7 +161,7 @@ const basilicaTour = {
       schedule: [
         {
           time: "8:00 AM",
-          activity: "Breakfast and hotel check-out",
+          activity: "Breakfast at hotel ",
         },
         {
           time: "9:00 AM",
@@ -172,9 +172,24 @@ const basilicaTour = {
           ],
         },
         {
-          time: "12:00 PM",
+          time: "10:30 AM",
+          activity: "Checkout hotel ",
+          activity_icon: "Hotel",
+        },
+        {
+          time: "11:30 AM",
           activity: "Proceed to KKS Port for immigration and ferry boarding",
           activity_icon: "Ferry departs",
+        },
+        {
+          time: "06:30 PM",
+          activity: "Visit the Madharasi Madha Church in Nagapattinam, a significant Christian site dedicated to Our Lady.",
+          activity_icon: "Mass",
+        },
+        {
+          time: "07:00 PM",
+          activity: "Return to Trichy",
+          activity_icon: "travel",
         },
       ],
     },
@@ -510,21 +525,21 @@ const Madha = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="p-3 bg-white rounded-md shadow-sm border border-blue-100">
                       <div className="flex items-center gap-2">
-                        <span className="bg-primary text-white px-2 py-1 rounded-full text-sm">
+                        <span className="bg-primary text-white px-2 py-1 rounded-full text-sm w-[100px] lg:w-fit ">
                           Batch 1
                         </span>
-                        <span className="font-medium">July 26 - 28, 2025</span>
+                        <span className="font-medium">26 September - 28 September, 2025</span>
                       </div>
                       <p className="mt-2 text-sm text-gray-600">
-                        Departure from Nagapattinam
+                        Madha Church Feast Week – Special Programs & Departures
                       </p>
                     </div>
                     <div className="p-3 bg-white rounded-md shadow-sm border border-blue-100">
                       <div className="flex items-center gap-2">
-                        <span className="bg-amber-600 text-white px-2 py-1 rounded-full text-sm">
+                        <span className="bg-amber-600 text-white px-2 py-1 rounded-full text-sm w-[100px] lg:w-fit">
                           Batch 2
                         </span>
-                        <span className="font-medium">July 28 - 30, 2025</span>
+                        <span className="font-medium"> 29 September - 1 October , 2025</span>
                       </div>
                       <p className="mt-2 text-sm text-gray-600">
                         Special Feast Week Departure
@@ -533,7 +548,7 @@ const Madha = () => {
                   </div>
                 </div>
 
-                <p className="mb-4">
+                <p className="mb-4 text-justify">
                   Christian pilgrimages in Sri Lanka offer a spiritually
                   meaningful journey through some of the island's most historic
                   and sacred sites. Though Christianity is a minority religion
@@ -543,14 +558,12 @@ const Madha = () => {
                 </p>
 
                 <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400 mb-4">
-                  <p className="font-medium text-amber-800 flex items-start gap-2">
+                  <p className="font-medium text-amber-800 flex items-start gap-2 text-justify">
                     <span className="text-amber-600">★</span>
                     <span>
                       The{" "}
-                      <span className="font-semibold">July 28-30 Batch</span>{" "}
-                      coincides with the annual feast celebrations at the Shrine
-                      of Our Lady of Madhu, offering pilgrims a unique
-                      opportunity to participate in these sacred festivities.
+                      Post-Feast Period: Still considered a sacred time; many pilgrims come during this quieter season after the main August festival
+
                     </span>
                   </p>
                 </div>
