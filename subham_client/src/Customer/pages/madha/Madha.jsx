@@ -303,10 +303,10 @@ const Top_attractions = [
     _id: "6819960e4fe9627fcb722be3",
   },
   {
-    name: "KKS beach",
-    image:kks,
+    name: "Kks beach",
+    image: kks,
     description:
-      "KKS Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
+      "Kks Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
     _id: "6819960e4fe9627fcb722be3",
   },
   {
@@ -326,7 +326,7 @@ const included_excluded = [
   },
   {
     type: "included",
-    description: "only breakfast",
+    description: "Only breakfast",
     _id: "687b51baab00690f1d74a602",
   },
   {
@@ -577,23 +577,31 @@ const Madha = () => {
                   <p className="font-medium text-amber-800 flex flex-col items-start gap-4 text-justify">
                     <div className="flex">
                       <span className="text-amber-600">★</span>
-                    <span>
-                      The Post-Feast Period: Still considered a sacred time;
-                      many pilgrims come during this quieter season after the
-                      main August festival.                     </span>
-                    </div>
-                      <span className="ml-4">
-                        🌳 Weather: Typically warm and slightly rainy (end of
-                        monsoon season)
-                      </span> 
-                      <span className="ml-4">
-                        🛐 Madhu Church is open year-round, with daily Masses,
-                        confession, and blessing
+                      <span className="ml-2">
+                        The Post-Feast Period: Still considered a sacred time;
+                        many pilgrims come during this quieter season after the
+                        main August festival.{" "}
                       </span>
+                    </div>
+                    <div className="flex">
+                      <span className="text-amber-600">★</span>
+                      <span className="ml-2">
+                        Weather: Typically warm and slightly rainy (end of
+                        monsoon season)
+                      </span>
+                    </div>
+                    <div className="">
+
+                      <span className="text-amber-600">★</span>
+                    <span className="ml-2">
+                      Madhu Church is open year-round, with daily Masses,
+                      confession, and blessing
+                    </span>
+                    </div>
                   </p>
                 </div>
 
-                <p className="mb-4 text-justify" >
+                <p className="mb-4 text-justify">
                   Among the most significant is the Shrine of Our Lady of Madhu
                   in Mannar, a 400-year-old Marian shrine visited by thousands
                   of devotees annually. Both pilgrimage batches include visits
@@ -649,7 +657,9 @@ const Madha = () => {
                   <SwiperSlide key={index}>
                     <motion.div
                       whileHover={{ y: -5 }}
-                      className={`bg-white p-6 rounded-lg shadow-md  ${expanded?'h-full':'lg:h-[320px] h-[350px]'} border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
+                      className={`bg-white p-6 rounded-lg shadow-md  ${
+                        expanded ? "h-full" : "lg:h-[320px] h-[350px]"
+                      } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
                     >
                       <div>
                         <div className="flex items-center mb-4">
