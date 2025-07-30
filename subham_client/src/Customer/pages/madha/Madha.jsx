@@ -755,14 +755,14 @@ const Madha = () => {
         <div className="w-full lg:max-w-7xl mx-auto">
           <motion.h2
             variants={slideUp}
-            className="text-3xl font-bold text-center text-primary mb-12"
+            className="lg:text-3xl text-2xl font-bold  text-center text-primary mb-8 lg:mb-12 w-full"
           >
             What's Included
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div variants={fadeIn}>
-              <h3 className="text-xl font-semibold text-green-600 mb-4">
+              <h3 className="text-xl font-semibold text-center lg:text-left text-green-600 mb-4">
                 Included
               </h3>
               <ul className="space-y-3">
@@ -782,7 +782,7 @@ const Madha = () => {
             </motion.div>
 
             <motion.div variants={fadeIn}>
-              <h3 className="text-xl font-semibold text-red-600 mb-4">
+              <h3 className="text-xl font-semibold text-center lg:text-left text-red-600 mb-4 ">
                 Not Included
               </h3>
               <ul className="space-y-3">
