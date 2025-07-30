@@ -220,28 +220,32 @@ const testimonials = [
     initial: "J",
     name: "Jenitha deepa",
     location: "Trichy, TamilNadu",
-    message: "Thank you for the wonderful Jaffna pilgrimage!  ( especially pradeepa mam), The churches were spiritually uplifting, and the library visit was fascinating. The ferry ride offered amazing views. Perfect planning made everything smooth - from comfortable stays to well-paced schedules. Truly memorable!",
+    message:
+      "Dear payanam group organizers ( especially pradeepa mam), I wanted to extend my sincere gratitude for organizing such a truly wonderful and enriching pilgrimage to Jaffna. It was an unforgettable experience from start to finish.The opportunity to visit all the beautiful churches in Jaffna was incredibly meaningful and spiritually uplifting. Each one offered a unique sense of peace and history. I also thoroughly enjoyed our visit to the Jaffna Public Library – it was fascinating to see such a significant landmark and learn about its history. Beyond the specific sites, the overall experience was simply amazing. The ferry journey was a highlight, offering breathtaking views and a unique way to travel. Your schedule planning was impeccable, ensuring we had ample time to explore and reflect without ever feeling rushed. Every aspect of the trip, especially the wonderful hotel stay, contributed to a comfortable and deeply enjoyable experience. Your dedication to making this pilgrimage so seamless and memorable truly shone through. Thank you again for an Incredible Jaffna Pilgrimage🙏🏼🙏🏼🙏🏼☺",
     stars: 5,
   },
   {
     initial: "C",
     name: "Celine rajesh",
     location: "Trichy, TamilNadu",
-    message: "This 2025 pilgrimage has been a profoundly blessed experience, filling our hearts with hope and strengthening our faith. We're deeply grateful for the opportunity to journey alongside such wonderful fellow pilgrims.  Let's cherish these memories and keep one another in our daily prayers as we carry this spiritual renewal forward.",
+    message:
+      "A pilgrims moment experienced  these three days in this special year 2025,pilgrimage of hope,we Cruze and Celine thank each and everyone who travelled along with us in this journey of hope and faith in our Lord.Surely God's abundant blessings will be on each one of us, let's be remembered in our daily prayers.thankyou.",
     stars: 5,
   },
   {
     initial: "S",
     name: "Santhiya vincent",
     location: "Trichy, TamilNadu",
-    message: " The ferry ride across the sparkling waters offered breathtaking views we'll never forget. The well-planned schedule gave us just the right balance—time to explore sacred sites, moments for quiet reflection, and opportunities to connect with fellow pilgrims. ",
+    message:
+      " Dear payanam group especially pradeepa is good I am reach my home Thanks ",
     stars: 5,
   },
   {
     initial: "V",
     name: "Vincent",
     location: "Trichy, TamilNadu",
-    message: "From start to finish, every detail was perfectly arranged. Your team's dedication shone through in the seamless organization, making this pilgrimage both spiritually fulfilling and stress-free. The thoughtful planning transformed this journey into a truly memorable experience that deepened our faith in such wonderful ways.",
+    message:
+      "Thank you pradeepa Your are good organisation But I am miss you thalai mannar Miss you old church and spring water Because passenger not cooperate Next time you proper shelduld and keep time your self Thanks",
     stars: 5,
   },
 ];
@@ -299,7 +303,8 @@ const Top_attractions = [
   },
   {
     name: "KKS beach",
-    image: "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753855223/NTY0MjQwMjgxNzhfbGN4N25z/drilldown",
+    image:
+      "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753855223/NTY0MjQwMjgxNzhfbGN4N25z/drilldown",
     description:
       "KKS Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
     _id: "6819960e4fe9627fcb722be3",
@@ -453,8 +458,6 @@ const Madha = () => {
             Spiritual Renewal at Ancient Marian Shrine
           </p>
         </motion.div>
-
-       
       </motion.section>
       {/* Package Details Section */}
       <motion.section
@@ -614,62 +617,75 @@ const Madha = () => {
               spaceBetween={30}
               slidesPerView={1}
               breakpoints={{
-                640: {
-                  slidesPerView: 1.5,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                },
+                640: { slidesPerView: 1.5 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
               }}
               centeredSlides={false}
               loop={true}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
               modules={[Autoplay]}
               className="!pb-12"
             >
-              {testimonials.map((review, index) => (
-                <SwiperSlide key={index}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="bg-white p-6 rounded-lg shadow-md h-full border border-gray-100 hover:shadow-lg transition-all duration-300 lg:h-[380px] flex flex-col justify-between"
-                  >
-                    <div className="">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
-                        {review.initial}
-                      </div>
-                      <div className="flex flex-col justify-start items-start gap-0">
-                        <h4 className="font-semibold">{review.name}</h4>
-                        <p className="text-gray-500 text-sm">
-                          {review.location}
+              {testimonials.map((review, index) => {
+                const [expanded, setExpanded] = useState(false);
+                const words = review.message.split(" ");
+                const shouldTruncate = words.length > 50;
+                const displayMessage =
+                  shouldTruncate && !expanded
+                    ? words.slice(0, 30).join(" ") + "..."
+                    : review.message;
+
+                return (
+                  <SwiperSlide key={index}>
+                    <motion.div
+                      whileHover={{ y: -5 }}
+                      className="bg-white p-6 rounded-lg shadow-md h-full border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center mb-4">
+                          <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
+                            {review.initial}
+                          </div>
+                          <div className="flex flex-col justify-start items-start gap-0">
+                            <h4 className="font-semibold">{review.name}</h4>
+                            <p className="text-gray-500 text-sm">
+                              {review.location}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4 text-justify">
+                          "{displayMessage}"
                         </p>
                       </div>
-                    </div>
-                    <p className="text-gray-700 mb-4 text-justify">"{review.message}"</p>
-                    </div>
-                    <div className="flex items-center text-primary">
-                      <span className="text-black font-semibold mr-2">
-                        Review:
-                      </span>
-                      {[...Array(review.stars)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="w-5 h-5 fill-current"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </motion.div>
-                </SwiperSlide>
-              ))}
+                      <div className="flex flex-col">
+                        {shouldTruncate && (
+                          <button
+                            onClick={() => setExpanded(!expanded)}
+                            className="text-primary text-sm font-medium mb-2 self-start hover:underline"
+                          >
+                            {expanded ? "Show Less" : "Show More"}
+                          </button>
+                        )}
+                        <div className="flex items-center text-primary">
+                          <span className="text-black font-semibold mr-2">
+                            Review:
+                          </span>
+                          {[...Array(review.stars)].map((_, i) => (
+                            <svg
+                              key={i}
+                              className="w-5 h-5 fill-current"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </motion.div>
         </div>
