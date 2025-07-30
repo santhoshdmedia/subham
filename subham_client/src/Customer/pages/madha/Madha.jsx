@@ -454,15 +454,7 @@ const Madha = () => {
           </p>
         </motion.div>
 
-        {/* Floating prayer beads decoration (optional) */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-20 left-10 z-0"
-        >
-          <div className="text-white text-8xl">📿</div>
-        </motion.div>
+       
       </motion.section>
       {/* Package Details Section */}
       <motion.section
@@ -652,7 +644,7 @@ const Madha = () => {
                       <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
                         {review.initial}
                       </div>
-                      <div className="flex flex-col gap-0">
+                      <div className="flex flex-col justify-start items-start gap-0">
                         <h4 className="font-semibold">{review.name}</h4>
                         <p className="text-gray-500 text-sm">
                           {review.location}
