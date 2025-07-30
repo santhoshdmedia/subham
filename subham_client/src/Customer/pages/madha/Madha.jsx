@@ -303,7 +303,7 @@ const Top_attractions = [
     _id: "6819960e4fe9627fcb722be3",
   },
   {
-    name: "Kks beach",
+    name: "KKS Beach",
     image: kks,
     description:
       "Kks Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
