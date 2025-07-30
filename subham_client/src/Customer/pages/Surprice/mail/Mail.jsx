@@ -266,7 +266,7 @@ export const Madhamail = () => {
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message: `Hi, I’m interested in basilica package can you please provide me with more details.`,
     package: "",
   });
   const navigate = useNavigate();
@@ -296,12 +296,12 @@ export const Madhamail = () => {
     }
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     if (!formData.package) newErrors.package = "Please select a package";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // handleChange()
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -484,8 +484,8 @@ export const Madhamail = () => {
             id="message"
             name="message"
             rows={5}
-            value={`Hi, I’m interested in ${formData.package||"basilica package"} can you please provide me with more details.`}
-            onChange={handleChange}
+            value={formData.message||`Hi, I’m interested in ${formData.package||"basilica package"} can you please provide me with more details.`}
+            onSubmit={handleChange}
             className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
               errors.message ? "border-red-500" : "border-gray-300"
             }`}

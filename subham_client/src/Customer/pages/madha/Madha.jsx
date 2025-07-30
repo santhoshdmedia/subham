@@ -28,6 +28,7 @@ import { GiSundial } from "react-icons/gi";
 import { GiJourney } from "react-icons/gi";
 import { GrOverview } from "react-icons/gr";
 import { FaCarSide } from "react-icons/fa";
+import kks from "../../../assets/madhu matha/kks.png";
 
 // Animation variants
 const fadeIn = {
@@ -303,8 +304,7 @@ const Top_attractions = [
   },
   {
     name: "KKS beach",
-    image:
-      "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753859563/Q2hhdEdQVF9JbWFnZV9KdWxfMzBfMjAyNV8xMl8zMF8wN19QTV8xX3o3czBrbw==/drilldown",
+    image:kks,
     description:
       "KKS Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
     _id: "6819960e4fe9627fcb722be3",
@@ -574,17 +574,26 @@ const Madha = () => {
                 </p>
 
                 <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400 mb-4">
-                  <p className="font-medium text-amber-800 flex items-start gap-2 text-justify">
-                    <span className="text-amber-600">★</span>
+                  <p className="font-medium text-amber-800 flex flex-col items-start gap-4 text-justify">
+                    <div className="flex">
+                      <span className="text-amber-600">★</span>
                     <span>
                       The Post-Feast Period: Still considered a sacred time;
                       many pilgrims come during this quieter season after the
-                      main August festival
-                    </span>
+                      main August festival.                     </span>
+                    </div>
+                      <span className="ml-4">
+                        🌳 Weather: Typically warm and slightly rainy (end of
+                        monsoon season)
+                      </span> 
+                      <span className="ml-4">
+                        🛐 Madhu Church is open year-round, with daily Masses,
+                        confession, and blessing
+                      </span>
                   </p>
                 </div>
 
-                <p>
+                <p className="mb-4 text-justify" >
                   Among the most significant is the Shrine of Our Lady of Madhu
                   in Mannar, a 400-year-old Marian shrine visited by thousands
                   of devotees annually. Both pilgrimage batches include visits
@@ -640,7 +649,7 @@ const Madha = () => {
                   <SwiperSlide key={index}>
                     <motion.div
                       whileHover={{ y: -5 }}
-                      className="bg-white p-6 rounded-lg shadow-md h-full border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between"
+                      className={`bg-white p-6 rounded-lg shadow-md  ${expanded?'h-full':'lg:h-[320px] h-[350px]'} border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
                     >
                       <div>
                         <div className="flex items-center mb-4">
