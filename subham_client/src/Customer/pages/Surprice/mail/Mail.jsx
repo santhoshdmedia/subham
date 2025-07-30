@@ -316,7 +316,7 @@ export const Madhamail = () => {
         "https://subham-backend-2.onrender.com/api/auth/send-inquiry",
         formData
       );
-      
+
       // Reset form on success
       setFormData({
         name: "",
@@ -325,19 +325,18 @@ export const Madhamail = () => {
         message: "",
         package: "",
       });
-      
+
       toast.success(
         "Thank you! Your inquiry has been submitted successfully. We will contact you within 24 hours."
       );
       setTimeout(() => {
-        window.location.reload()
+        window.location.reload();
       }, 1000);
-      
     } catch (error) {
       console.error("Submission error:", error);
       toast.error(
         error.response?.data?.message ||
-        "Failed to submit inquiry. Please try again later."
+          "Failed to submit inquiry. Please try again later."
       );
     } finally {
       setIsSubmitting(false);
@@ -346,20 +345,24 @@ export const Madhamail = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg  max-w-3xl mx-auto">
-      
       {submitStatus && (
-        <div className={`mb-6 p-4 rounded ${
-          submitStatus.success 
-            ? "bg-green-100 text-green-800" 
-            : "bg-red-100 text-red-800"
-        }`}>
+        <div
+          className={`mb-6 p-4 rounded ${
+            submitStatus.success
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
+          }`}
+        >
           {submitStatus.message}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex flex-col items-start">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700  mb-1">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700  mb-1"
+          >
             Full Name*
           </label>
           <input
@@ -368,17 +371,22 @@ export const Madhamail = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
               errors.name ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Your full name"
           />
-          {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+          {errors.name && (
+            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col items-start">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email*
             </label>
             <input
@@ -387,16 +395,21 @@ export const Madhamail = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
                 errors.email ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="your@email.com"
             />
-            {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+            )}
           </div>
 
           <div className="flex flex-col items-start">
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Phone Number*
             </label>
             <input
@@ -405,17 +418,37 @@ export const Madhamail = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+              onBlur={(e) => {
+                // Validation on blur
+                const phoneRegex = /^(\+91[\-\s]?)?[6789]\d{9}$/;
+                if (!phoneRegex.test(e.target.value.trim())) {
+                  setErrors({
+                    ...errors,
+                    phone: "Please enter a valid 10-digit Indian mobile number",
+                  });
+                } else {
+                  const newErrors = { ...errors };
+                  delete newErrors.phone;
+                  setErrors(newErrors);
+                }
+              }}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
                 errors.phone ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="+91 9876543210"
+              maxLength="14" // For +91 and 10 digits
             />
-            {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
+            {errors.phone && (
+              <p className="mt-1 text-sm text-red-600 text-start">{errors.phone}</p>
+            )}
           </div>
         </div>
 
         <div className="flex flex-col items-start">
-          <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="package"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Select Pilgrimage Batch*
           </label>
           <select
@@ -423,34 +456,44 @@ export const Madhamail = () => {
             name="package"
             value={formData.package}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+            className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
               errors.package ? "border-red-500" : "border-gray-300"
             }`}
           >
             <option value="">Select your batch</option>
-            <option value="Batch 1: July 26-28, 2025">Batch 1: September 26- September 28, 2025</option>
-            <option value="Batch 2: July 28-31, 2025">Batch 2: September 29- October 1, 2025</option>
+            <option value="Batch 1: July 26-28, 2025">
+              Batch 1: September 26- September 28, 2025
+            </option>
+            <option value="Batch 2: July 28-31, 2025">
+              Batch 2: September 29- October 1, 2025
+            </option>
           </select>
-          {errors.package && <p className="mt-1 text-sm text-red-600">{errors.package}</p>}
+          {errors.package && (
+            <p className="mt-1 text-sm text-red-600">{errors.package}</p>
+          )}
         </div>
 
         <div className="flex flex-col items-start">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Your Message*
           </label>
           <textarea
             id="message"
             name="message"
             rows={5}
-            value={formData.message}
-            
+            value={`Hi, I’m interested in ${formData.package||"basilica package"} can you please provide me with more details.`}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none focus:ring-orange-500 focus:border-orange-500 ${
               errors.message ? "border-red-500" : "border-gray-300"
             }`}
             placeholder="Tell us about your pilgrimage requirements..."
           />
-          {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+          {errors.message && (
+            <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+          )}
         </div>
 
         <div>
@@ -463,7 +506,10 @@ export const Madhamail = () => {
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center">
-                <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  viewBox="0 0 24 24"
+                >
                   {/* Spinner SVG */}
                 </svg>
                 Processing...
@@ -475,7 +521,7 @@ export const Madhamail = () => {
         </div>
       </form>
 
-      <ToastContainer 
+      <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -489,4 +535,3 @@ export const Madhamail = () => {
     </div>
   );
 };
-

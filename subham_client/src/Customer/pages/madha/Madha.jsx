@@ -304,7 +304,7 @@ const Top_attractions = [
   {
     name: "KKS beach",
     image:
-      "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753855223/NTY0MjQwMjgxNzhfbGN4N25z/drilldown",
+      "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753859563/Q2hhdEdQVF9JbWFnZV9KdWxfMzBfMjAyNV8xMl8zMF8wN19QTV8xX3o3czBrbw==/drilldown",
     description:
       "KKS Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
     _id: "6819960e4fe9627fcb722be3",
@@ -719,7 +719,7 @@ const Madha = () => {
                 <img
                   src={attraction.image}
                   alt={attraction.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full lg:h-64 h-40 object-cover object-center"
                 />
                 <div className="p-4">
                   <div className="flex items-center mb-2">
