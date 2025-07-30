@@ -167,13 +167,11 @@ const basilicaTour = {
           time: "9:00 AM",
           activity: "Visit",
           activity_icon: "explore",
-          attractions: [
-            "Keerimalai Springs (optional bath)",
-          ],
+          attractions: ["Keerimalai Springs (optional bath)"],
         },
         {
           time: "10:30 AM",
-          activity: "Checkout hotel ",
+          activity: "Return and checkout hotel ",
           activity_icon: "Hotel",
         },
         {
@@ -183,7 +181,8 @@ const basilicaTour = {
         },
         {
           time: "06:30 PM",
-          activity: "Visit the Madharasi Madha Church in Nagapattinam, a significant Christian site dedicated to Our Lady.",
+          activity:
+            "Visit the Madharasi Madha Church in Nagapattinam, a significant Christian site dedicated to Our Lady.",
           activity_icon: "Mass",
         },
         {
@@ -218,35 +217,31 @@ const activityIcons = {
 
 const testimonials = [
   {
-    initial: "M",
-    name: "Maria Fernandez",
-    location: "Colombo, Sri Lanka",
-    message:
-      "The retreat was perfectly organized. Visiting all the churches in Jaffna was spiritually uplifting. The schedule was well-planned without feeling rushed.",
+    initial: "J",
+    name: "Jenitha deepa",
+    location: "Trichy, TamilNadu",
+    message: "Thank you for the wonderful Jaffna pilgrimage!  ( especially pradeepa mam), The churches were spiritually uplifting, and the library visit was fascinating. The ferry ride offered amazing views. Perfect planning made everything smooth - from comfortable stays to well-paced schedules. Truly memorable!",
     stars: 5,
   },
   {
-    initial: "A",
-    name: "Anita Rajesh",
-    location: "Chennai, India",
-    message:
-      "The Madhu pilgrimage was a life-changing experience. The organizers took care of every detail, allowing us to focus on our spiritual journey.",
+    initial: "C",
+    name: "Celine rajesh",
+    location: "Trichy, TamilNadu",
+    message: "This 2025 pilgrimage has been a profoundly blessed experience, filling our hearts with hope and strengthening our faith. We're deeply grateful for the opportunity to journey alongside such wonderful fellow pilgrims.  Let's cherish these memories and keep one another in our daily prayers as we carry this spiritual renewal forward.",
     stars: 5,
   },
   {
     initial: "S",
-    name: "Suresh Kumar",
-    location: "Bangalore, India",
-    message:
-      "The visit to Jaffna Public Library was an unexpected highlight. The entire pilgrimage was seamless and meaningful. Special thanks to Pradeepa mam!",
+    name: "Santhiya vincent",
+    location: "Trichy, TamilNadu",
+    message: " The ferry ride across the sparkling waters offered breathtaking views we'll never forget. The well-planned schedule gave us just the right balance—time to explore sacred sites, moments for quiet reflection, and opportunities to connect with fellow pilgrims. ",
     stars: 5,
   },
   {
-    initial: "R",
-    name: "Rohit Mehta",
-    location: "Mumbai, India",
-    message:
-      "The ferry journey was breathtaking and the hotel stay was very comfortable. Everything was perfectly arranged - truly a pilgrimage to remember!",
+    initial: "V",
+    name: "Vincent",
+    location: "Trichy, TamilNadu",
+    message: "From start to finish, every detail was perfectly arranged. Your team's dedication shone through in the seamless organization, making this pilgrimage both spiritually fulfilling and stress-free. The thoughtful planning transformed this journey into a truly memorable experience that deepened our faith in such wonderful ways.",
     stars: 5,
   },
 ];
@@ -266,13 +261,12 @@ const Top_attractions = [
       "St. Mary's Cathedral, also affectionately known as Periye Kovil, stands as the majestic seat of the Roman Catholic Diocese of Jaffna in Gurunagar.",
     _id: "687b51baab00690f1d74a5f8",
   },
-
   {
-    name: "Madhu Madha Church ",
-    image: "https://msmwebfiles.s3.amazonaws.com/1752922319573.jpg",
+    name: " Jaffna Public Library",
+    image: "https://msmwebfiles.s3.amazonaws.com/1752903576848.jpg",
     description:
-      "Shrine of Our Lady of Madhu (Madhu Madha Church) in Mannar is Sri Lanka’s holiest Catholic Marian shrine and a revered site of unity, healing, and faith.",
-    _id: "687b7aedab00690f1d777590",
+      "The Jaffna Public Library, known as Yāḻ potu nūlakam in Tamil, stands as one of Sri Lanka’s cultural landmarks, deeply woven into the Tamil community's intellectual identity.",
+    _id: "687b3254ab00690f1d71d25c",
   },
   {
     name: "St. Anthony's Church",
@@ -282,11 +276,33 @@ const Top_attractions = [
     _id: "687b7aedab00690f1d77758d",
   },
   {
+    name: "Madhu Madha Church ",
+    image: "https://msmwebfiles.s3.amazonaws.com/1752922319573.jpg",
+    description:
+      "Shrine of Our Lady of Madhu (Madhu Madha Church) in Mannar is Sri Lanka’s holiest Catholic Marian shrine and a revered site of unity, healing, and faith.",
+    _id: "687b7aedab00690f1d777590",
+  },
+
+  {
     name: "Mannar Fort ",
     image: "https://msmwebfiles.s3.amazonaws.com/1752922049342.jpg",
     description:
       "Mannar Fort, built by the Portuguese in 1560 and later expanded by the Dutch, is a coastal fort on Mannar Island known for its coral-stone walls and square bastions.",
     _id: "687b7aedab00690f1d77758e",
+  },
+  {
+    name: "Talaimannar Pier",
+    image: "https://msmwebfiles.s3.amazonaws.com/1746507200673.jpg",
+    description:
+      "The historic location where the ferry service between Sri Lanka and India once operated. The pier offers scenic views of the Palk Strait.",
+    _id: "6819960e4fe9627fcb722be3",
+  },
+  {
+    name: "KKS beach",
+    image: "https://res-console.cloudinary.com/dmvc40kyp/thumbnails/v1/image/upload/v1753855223/NTY0MjQwMjgxNzhfbGN4N25z/drilldown",
+    description:
+      "KKS Beach in Jaffna was Sri Lanka's ferry link to India. The old pier still stands, perfect for ocean views and quiet moments by the sea.",
+    _id: "6819960e4fe9627fcb722be3",
   },
   {
     name: "Keerimalai Springs ",
@@ -310,7 +326,8 @@ const included_excluded = [
   },
   {
     type: "included",
-    description: "Double / Triple-sharing accommodations upon availability in a two-star hotel",
+    description:
+      "Double / Triple-sharing accommodations upon availability in a two-star hotel",
     _id: "687b51baab00690f1d74a602",
   },
   {
@@ -346,7 +363,6 @@ const Madha = () => {
   const toggleDay = (day) => {
     setExpandedDay(expandedDay === day ? null : day);
   };
- 
 
   const Madha_imag = [
     { id: 1, src: bg_1, name: "madha" },
@@ -507,7 +523,7 @@ const Madha = () => {
                     </div>
                     <div className="p-0">
                       <p className="text-center py-8">
-                        <Madhamail/>
+                        <Madhamail />
                       </p>
                     </div>
                   </motion.div>
@@ -528,7 +544,9 @@ const Madha = () => {
                         <span className="bg-primary text-white px-2 py-1 rounded-full text-sm w-[110px] lg:w-fit ">
                           Batch 1
                         </span>
-                        <span className="font-medium">26 September - 28 September, 2025</span>
+                        <span className="font-medium">
+                          26 September - 28 September, 2025
+                        </span>
                       </div>
                       <p className="mt-2 text-sm text-gray-600">
                         Madha Church Feast Week – Special Programs & Departures
@@ -539,7 +557,10 @@ const Madha = () => {
                         <span className="bg-amber-600 text-white px-2 py-1 rounded-full text-sm w-[100px] lg:w-fit">
                           Batch 2
                         </span>
-                        <span className="font-medium"> 29 September - 1 October , 2025</span>
+                        <span className="font-medium">
+                          {" "}
+                          29 September - 1 October , 2025
+                        </span>
                       </div>
                       <p className="mt-2 text-sm text-gray-600">
                         Special Feast Week Departure
@@ -561,9 +582,9 @@ const Madha = () => {
                   <p className="font-medium text-amber-800 flex items-start gap-2 text-justify">
                     <span className="text-amber-600">★</span>
                     <span>
-                      The{" "}
-                      Post-Feast Period: Still considered a sacred time; many pilgrims come during this quieter season after the main August festival
-
+                      The Post-Feast Period: Still considered a sacred time;
+                      many pilgrims come during this quieter season after the
+                      main August festival
                     </span>
                   </p>
                 </div>
@@ -624,8 +645,9 @@ const Madha = () => {
                 <SwiperSlide key={index}>
                   <motion.div
                     whileHover={{ y: -5 }}
-                    className="bg-white p-6 rounded-lg shadow-md h-full border border-gray-100 hover:shadow-lg transition-all duration-300"
+                    className="bg-white p-6 rounded-lg shadow-md h-full border border-gray-100 hover:shadow-lg transition-all duration-300 lg:h-[380px] flex flex-col justify-between"
                   >
+                    <div className="">
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
                         {review.initial}
@@ -637,7 +659,8 @@ const Madha = () => {
                         </p>
                       </div>
                     </div>
-                    <p className="text-gray-700 mb-4">"{review.message}"</p>
+                    <p className="text-gray-700 mb-4 text-justify">"{review.message}"</p>
+                    </div>
                     <div className="flex items-center text-primary">
                       <span className="text-black font-semibold mr-2">
                         Review:
@@ -695,7 +718,7 @@ const Madha = () => {
                     <Star className="text-yellow-500 mr-1" size={16} />
                     <h3 className="font-semibold text-lg">{attraction.name}</h3>
                   </div>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-gray-700 text-sm text-justify">
                     {attraction.description}
                   </p>
                 </div>
