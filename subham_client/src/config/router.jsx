@@ -27,6 +27,7 @@ import Enquiry from "../Customer/pages/Surprice/enquirey/Enquirey";
 import Vaibhamvam from "../Customer/pages/Surprice/destination/Vaibhamvam";
 import Madha from "../Customer/pages/madha/Madha";
 import ComingSoon from "../Customer/pages/Coming/Comingsoon";
+import Student from "../Customer/pages/Student/Student";
 
 // landing page
 let client_routes = [
@@ -133,8 +134,9 @@ let client_routes = [
   {
     path: "/students-tour-package",
     element: <CustomerLayout />,
-    children: [{ path: "/students-tour-package", element: <ComingSoon /> }],
+    children: [{ path: "/students-tour-package", element: <Student /> }],
   },
+
 ];
 
 // dashboard

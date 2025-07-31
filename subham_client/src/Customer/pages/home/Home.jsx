@@ -137,7 +137,7 @@ export const FerryService = () => {
                   <div className="mt-2 bg-white p-5 text-justify rounded-lg h-fit lg:h-[180px] shadow-sm border border-gray-100">
                     <p className="text-gray-700">
                       Subham Group introduced Sivaganga, a modern ferry with 150
-                      passenger capacity, operating 5 days a week between
+                      passenger capacity, operating 6 days a week between
                       Nagapattinam and Kankesanthurai.
                     </p>
                   </div>
