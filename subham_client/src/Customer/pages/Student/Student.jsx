@@ -413,7 +413,7 @@ const Student = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <div>
@@ -430,7 +430,7 @@ const Student = () => {
                 className="bg-white text-orange-600 focus:outline-none px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                +91-9087143535
+                +919087143535
               </a>
             </div>
           </div>
