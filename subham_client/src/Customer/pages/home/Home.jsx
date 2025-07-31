@@ -43,7 +43,7 @@ const Home = () => {
 
 export default Home;
 
-import Ferrey from "../../../assets/subhamferry.jpg";
+import Ferrey from "../../../assets/subhamferry.png";
 import { Link } from "react-router";
 
 export const FerryService = () => {
@@ -63,25 +63,27 @@ export const FerryService = () => {
       </div>
 
       {/* Content Section */}
-      <section className="flex flex-col lg:flex-row gap-8 px-4 lg:px-20 sm:px-6 mb-16 lg:mx-28 mx-10">
-        <div className="lg:w-1/2 w-full h-full">
+      <section className="flex flex-col lg:flex-row gap-8 px-4 lg:px-10 sm:px-6 mb-16 lg:mx-28 mx-10">
+        <div className="lg:w-[50%] w-full !h-[100%] ">
           <img
             src={Ferrey}
             alt="Subham Ferry "
-            className="w-full h-auto rounded-xl shadow-lg object-cover"
+            className="w-full h-full  rounded-xl shadow-lg object-cover"
           />
         </div>
-        <div className="lg:w-1/2 w-full">
-          <h1 className="text-xl lg:text-3xl font-bold lg:text-left text-center  text-gray-800 mb-6">
+        <div className="lg:w-[50%] w-full  ">
+          <div className="flex flex-col">
+            <h1 className="text-xl lg:text-3xl font-bold lg:text-left text-center  text-gray-800 mb-6">
             India to Sri Lanka Ferry – Book Now with Subham Ferry
           </h1>
 
-          <p className="text-lg text-gray-600 mb-6 text-justify">
+          <p className="text-lg  text-gray-600 mb-6 text-justify">
             Looking to travel by sea from India to Sri Lanka? Subham Ferry makes
             it possible with a reliable, scenic, and affordable ferry to Sri
             Lanka from India—perfect for both tourists and locals looking for a
             unique travel experience.
           </p>
+          </div>
 
           <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
             <p className="text-amber-700 font-medium">
@@ -107,17 +109,15 @@ export const FerryService = () => {
             {/* Timeline items - horizontal on desktop, vertical on mobile */}
             <div className="grid md:grid-cols-3 gap-8 md:gap-4">
               {/* Item 1 */}
-              <div className="relative">
-                {/* Dot */}
-                <div className="hidden lg:block absolute left-1/2 right-1/2 md:left-auto  bottom-[-15px]  w-4 h-4 rounded-full bg-amber-500 transform -translate-x-1/2 md:-translate-y-1/2 z-10"></div>
+              <div className="relative ">
 
                 {/* Content */}
-                <div className="mt-6 md:mt-0 text-center md:text-right md:pr-8">
+                <div className="mt-6 md:mt-0  text-center md:text-right md:pr-8">
                   <time className="text-lg font-bold text-amber-600 block text-center">
                     October 14, 2023
                   </time>
-                  <div className="mt-2 bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                    <p className="text-gray-700 text-center">
+                  <div className="mt-2 bg-white p-5 lg:h-[180px] h-fit rounded-lg shadow-sm border border-gray-100">
+                    <p className="text-gray-700 text-justify">
                       The first vessel, HSC Cheriyapani, began operations on the
                       Nagapattinam (India) to Kankesanthurai (Sri Lanka) route.
                       This marked the revival of the ferry link after nearly
@@ -129,14 +129,12 @@ export const FerryService = () => {
 
               {/* Item 2 */}
               <div className="relative">
-                {/* Dot */}
-                <div className="hidden lg:block absolute left-1/2 right-1/2 md:left-auto  bottom-[-15px]  w-4 h-4 rounded-full bg-amber-500 transform -translate-x-1/2 md:-translate-y-1/2 z-10"></div>
                 {/* Content */}
-                <div className="mt-6 md:mt-0 text-center">
+                <div className="mt-6 md:mt-0 text-justify">
                   <time className="text-lg font-bold text-amber-600 block">
                     August 16, 2024
                   </time>
-                  <div className="mt-2 bg-white p-5 rounded-lg shadow-sm border border-gray-100">
+                  <div className="mt-2 bg-white p-5 rounded-lg h-fit lg:h-[180px] shadow-sm border border-gray-100">
                     <p className="text-gray-700">
                       Subham Group introduced Sivaganga, a modern ferry with 150
                       passenger capacity, operating 5 days a week between
@@ -148,15 +146,13 @@ export const FerryService = () => {
 
               {/* Item 3 */}
               <div className="relative">
-                <div className="hidden lg:block absolute left-1/2 right-1/2 md:left-auto  bottom-[-15px]  w-4 h-4 rounded-full bg-amber-500 transform -translate-x-1/2 md:-translate-y-1/2 z-10"></div>
 
-                {/* Content */}
                 <div className="mt-6 md:mt-0 text-center md:text-left md:pl-8">
                   <time className="text-lg font-bold text-amber-600 block text-center">
                     May 2025
                   </time>
-                  <div className="mt-2 bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                    <p className="text-gray-700 text-center">
+                  <div className="mt-2 bg-white p-5 lg:h-[180px] h-fit rounded-lg shadow-sm border border-gray-100">
+                    <p className="text-gray-700 text-justify">
                       Recognizing the surge in demand, Subham Group has now
                       embarked on acquiring a second superfast vessel capable of
                       accommodating 250 passengers.
@@ -271,14 +267,11 @@ export const FerryService = () => {
       </section>
 
       {/* Booking CTA Section */}
-      <section className="bg-gray-50 rounded-xl p-8 md:p-24  text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+      <section className="bg-gray-50 rounded-xl p-8 md:p-24  text-center ">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-12">
           Ready to Sail?
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-          Booking your India to Sri Lanka ferry is easy! Visit sailsubham.com or
-          call our helpline for instant ferry booking assistance.
-        </p>
+    
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link to={'https://booking.sailsubham.com/home'}>
             <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full lg:text-lg text-md transition duration-300 transform hover:scale-105">
