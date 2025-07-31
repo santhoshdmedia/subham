@@ -739,7 +739,7 @@ const Student = () => {
                 <CheckCircle className="h-5 w-5 text-yellow-400" />
               </div>
               <div className="ml-3">
-                <p className="text-sm text-yellow-700">
+                <p className="text-sm text-yellow-700 text-justify">
                   <strong>Special Note:</strong> Uniform compulsory for students
                   up to 12th standard. Staff ID required for guardians. One
                   accompanying guardian/staff member is mandatory per group.
