@@ -45,6 +45,7 @@ export default Home;
 
 import Ferrey from "../../../assets/subhamferry.png";
 import { Link } from "react-router";
+import { GoArrowSwitch } from "react-icons/go";
 
 export const FerryService = () => {
   return (
@@ -52,10 +53,10 @@ export const FerryService = () => {
       {/* Hero Section */}
       <div className="relative  py-10 px-4 sm:px-6 lg:px-8 overflow-hidden mb-12  ">
         <div className="relative max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl md:text-6xl font-extrabold bg-gradient-to-l from-[#bb1900] via-[#fd6f01] to-[#ffb000] mb-4 text-transparent bg-clip-text ">
-            India to Sri Lanka Ferry
+          <h1 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold pb-4 bg-gradient-to-l from-[#bb1900] via-[#fd6f01] to-[#ffb000] mb-4 text-transparent bg-clip-text flex items-center justify-center gap-4 ">
+            India <GoArrowSwitch className="text-xl lg:text-3xl text-orange-400 font-bold " /> Sri Lanka Ferry
           </h1>
-          <p className="text-lg md:text-2xl text-primary">
+          <p className="text-md md:text-2xl text-primary">
             Experience seamless travel between nations
           </p>
           
@@ -74,7 +75,7 @@ export const FerryService = () => {
         <div className="lg:w-[50%] w-full  ">
           <div className="flex flex-col">
             <h1 className="text-xl lg:text-3xl font-bold lg:text-left text-center  text-gray-800 mb-6">
-            India to Sri Lanka Ferry – Book Now with Subham Ferry
+            India  Sri Lanka Ferry – Book Now with Subham Ferry
           </h1>
 
           <p className="text-lg  text-gray-600 mb-6 text-justify">
@@ -274,12 +275,12 @@ export const FerryService = () => {
     
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link to={'https://booking.sailsubham.com/home'}>
-            <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full lg:text-lg text-md transition duration-300 transform hover:scale-105">
+            <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full lg:text-md text-sm transition duration-300 transform hover:scale-105">
               Book Online Now
             </button>
           </Link>
-          <a href="tel:+91 9087143535" className="bg-white hover:bg-gray-100 text-amber-600 border border-amber-600 font-bold lg:py-3 lg:px-8 p-2 px-1 rounded-full text-lg transition duration-300 transform hover:scale-105 lg:text-lg text-md lg:w-fit w-[220px] lg:mx-0 mx-auto">
-            Call: +91 9087143535
+          <a href="tel:+91 7448893535" className="bg-white hover:bg-gray-100 text-amber-600 border border-amber-600 font-bold lg:py-3 lg:px-8 p-2 px-4 rounded-full  transition duration-300 transform hover:scale-105 lg:text-md text-sm lg:w-fit  lg:mx-0 mx-auto">
+            Call: +91 7448893535
           </a>
         </div>
       </section>
