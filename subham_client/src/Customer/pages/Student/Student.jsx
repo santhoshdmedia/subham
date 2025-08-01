@@ -953,19 +953,19 @@ const Student = () => {
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Age Group</h3>
-              <p className="text-gray-600">12 to 25 years</p>
+              <p className="text-gray-600 capitalize">12 to 25 years</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <Star className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Group Size</h3>
-              <p className="text-gray-600">Minimum 25 students</p>
+              <p className="text-gray-600 capitalize">Minimum 25 Students</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Free Guardian</h3>
-              <p className="text-gray-600">1 Free ticket for staff/guardian</p>
+              <p className="text-gray-600 capitalize">1 Free ticket for Staff/Guardian</p>
             </div>
           </div>
 
