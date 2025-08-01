@@ -803,7 +803,7 @@ const Student = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {/* Big featured image (left) */}
-            <div className="md:col-span-2 row-span-2 relative group overflow-hidden rounded-xl shadow-lg h-[550px]">
+            <div className="md:col-span-2 row-span-2 relative group overflow-hidden rounded-xl shadow-lg lg:h-[550px]">
               <img
                 src={images[0]?.url}
                 alt={images[0]?.caption}
@@ -1066,7 +1066,7 @@ const Student = () => {
                                     className="flex items-start text-sm"
                                   >
                                     <span className="text-primary mr-1">•</span>
-                                    <span className="text-gray-700">
+                                    <span className="text-gray-700 text-justify">
                                       {attraction}
                                     </span>
                                   </li>
@@ -1076,7 +1076,7 @@ const Student = () => {
                           )}
 
                           {item.note && (
-                            <p className="bg-primary/10  p-2 w-1/2 mt-2 rounded-lg flex items-center gap-4">
+                            <p className="bg-primary/10  p-2 lg:w-1/2 w-full text-justify mt-2 rounded-lg flex items-center gap-4">
                               <span>{getActivityIcon(item.noteIcon)}</span>
                               {item.note}
                             </p>
