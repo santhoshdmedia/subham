@@ -11,7 +11,7 @@ const CustomerLayout = () => {
   const [showFooter, setShowFooter] = useState(true);
   
   // Check if current route is 'surprice'
-  const isSurpriceRoute = ["students-tour","payanam/groupmadhu","vasan-tour-package","madha-register", "Enquirey","new-register", "new-login","vaibhavam"].some(route => 
+  const isSurpriceRoute = [,"payanam/groupmadhu","vasan-tour-package","madha-register", "Enquirey","new-register", "new-login","vaibhavam"].some(route => 
     location.pathname.includes(route)
   );
  const isSpecialRoute = ["new-register", "new-login","madha-register"].some(route => 
