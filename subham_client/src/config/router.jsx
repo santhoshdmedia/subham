@@ -139,7 +139,7 @@ let client_routes = [
   {
     path: "/students-tour",
     element: <CustomerLayout />,
-    children: [{ path: "/students-tour-package", element: <Student /> }],
+    children: [{ path: "/students-tour", element: <Student /> }],
   },
 
 
