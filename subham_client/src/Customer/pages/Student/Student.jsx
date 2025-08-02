@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import {
   Ship,
   Users,
@@ -41,6 +42,7 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import { IMAGE_HELPER } from "../../../helper/Imagehelper";
 import "./s.css";
 import { motion } from "framer-motion";
@@ -486,6 +488,32 @@ const activityIcons = {
   default: <GiSundial className="text-gray-500" />,
 };
 
+const Slides = [
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp",
+    caption: "Jafna fort",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141492/Subham/1754141492161.jpg",
+    caption: "Dambakolapatuna Port",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141605/Subham/1754141605117.jpg",
+    caption: "Keerimalai Springs ",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141664/Subham/1754141663778.jpg",
+    caption: "Nallur Kandaswamy Kovil",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141795/Subham/1754141794892.jpg",
+    caption: "Point Pedro",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141858/Subham/1754141857466.jpg",
+    caption: "University of Jaffna / Farm visit",
+  },
+];
 const Student = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -586,10 +614,10 @@ const Student = () => {
   ];
 
   const inclusions = [
-    "ferry tickets",
+    "Ferry tickets",
     "2 nights hotel stay with breakfast ",
     "Local Sightseeing Transportation.",
-    "1 Staff (or) Guardian Free per group",
+    "Tamil and English Speaking Guide",
   ];
 
   const showModal = (pkg) => {
@@ -632,47 +660,134 @@ const Student = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative lg:py-20 py-8 price_section text-white bg-cover bg-center">
+      <section className="relative lg:py-20 py-8  text-white bg-cover bg-center h-[80vh]">
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
-
+        <div className="absolute inset-0 z-0">
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              // lowercase 'a' and object format
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]} // Add the Autoplay module
+            className="w-full h-full"
+          >
+            {Slides.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative w-full h-full">
+                  <img
+                    src={slide.src}
+                    alt={slide.caption}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
         <div className="relative lg:max-w-[80%] w-[100%] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* Gradient heading with better contrast */}
-            <h1 className="text-3xl md:text-6xl font-bold mb-6 bg-[#eb8519] text-transparent bg-clip-text drop-shadow-lg">
-              Explore Northern Sri Lanka
-            </h1>
+          <div class=" flex items-center justify-center p-4">
+            <div class="text-center max-w-4xl">
+              {/* Main heading with animated gradient */}
+              <h1 class="text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-white bg-clip-text drop-shadow-[0_5px_5px_rgba(235,133,25,0.4)] text-pulse">
+                Students Pack
+              </h1>
 
-            <p className="text-lg md:text-2xl mb-4 font-medium text-[#f5f5f5] drop-shadow-lg">
-              2 Nights / 3 Days Student Tour Package
-            </p>
+              {/* Subheading with similar effect but smaller */}
+              <h2
+                class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 
+                animate-gradient text-transparent bg-clip-text drop-shadow-[0_3px_3px_rgba(235,133,25,0.4)]"
+              >
+                Explore Northern Sri Lanka
+              </h2>
 
-            {/* Tags with orange variants */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8 text-md lg:text-lg font-semibold">
-              <span className="bg-amber-500 text-[#f5f5f5] px-4 py-2 rounded-full border border-amber-400/30">
-                Tamil Heritage
-              </span>
-              <span className="bg-orange-600 text-[#f5f5f5] px-4 py-2 rounded-full border border-orange-500/30">
-                Culture
-              </span>
-              <span className="bg-amber-600 text-[#f5f5f5] px-4 py-2 rounded-full border border-amber-500/30">
-                Ecology
-              </span>
-            </div>
+              <p class="text-lg md:text-2xl mb-6 font-medium text-gray-200 drop-shadow-lg">
+                2 Nights / 3 Days Student Tour Package
+              </p>
 
-            {/* Info items with icon colors adjusted */}
-            <div className="flex items-center justify-center space-x-6 text-md lg:text-lg text-[#f5f5f5] font-bold w-full ">
-              <div className="flex items-center">
-                <Anchor className="w-6 h-6 mr-2 text-amber-300" />
-                <span>Ferry Travel</span>
+              {/* Tags with animated hover effects */}
+              <div class="flex flex-wrap justify-center gap-4 mb-8 text-md lg:text-lg font-semibold">
+                <span
+                  class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-full border border-amber-400/30 
+                  hover:scale-105 transition-transform duration-300"
+                >
+                  Tamil Heritage
+                </span>
+                <span
+                  class="bg-gradient-to-r from-orange-500 to-amber-600 text-white px-4 py-2 rounded-full border border-orange-500/30 
+                  hover:scale-105 transition-transform duration-300"
+                >
+                  Culture
+                </span>
+                <span
+                  class="bg-gradient-to-r from-amber-600 to-orange-500 text-white px-4 py-2 rounded-full border border-amber-500/30 
+                  hover:scale-105 transition-transform duration-300"
+                >
+                  Ecology
+                </span>
               </div>
-              <div className="flex items-center">
-                <Users className="w-6 h-6 mr-2 text-amber-300" />
-                <span>Age 12-25</span>
-              </div>
-              <div className="flex items-center">
-                <Calendar className="w-6 h-6 mr-2 text-amber-300" />
-                <span>3 Days</span>
+
+              {/* Info items with improved layout */}
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-lg text-gray-200 font-medium max-w-lg mx-auto">
+                <div class="flex items-center justify-center">
+                  <span class="w-8 h-8 mr-3 text-amber-300">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      />
+                    </svg>
+                  </span>
+                  <span>Ferry Travel</span>
+                </div>
+                <div class="flex items-center justify-center">
+                  <span class="w-8 h-8 mr-3 text-amber-300">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  </span>
+                  <span>Age 12-25</span>
+                </div>
+                <div class="flex items-center justify-center">
+                  <span class="w-8 h-8 mr-3 text-amber-300">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </span>
+                  <span>3 Days</span>
+                </div>
               </div>
             </div>
           </div>
@@ -804,23 +919,46 @@ const Student = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {/* Big featured image (left) */}
             <div className="md:col-span-2 row-span-2 relative group overflow-hidden rounded-xl shadow-lg lg:h-[550px]">
-              <img
-                src={images[0]?.url}
-                alt={images[0]?.caption}
-                className="w-full h-full object-[100%] transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
-                <div>
-                  <p className="text-white font-bold text-xl">
-                    {images[0]?.caption}
-                  </p>
-                  <p className="text-gray-200 text-sm mt-1 flex items-center">
-                    <FaMapMarkerAlt className="mr-1" />{" "}
-                    { "Jafna Librarey"}
-                  </p>
-                </div>
-              </div>
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                  waitForTransition: true, // Add this if using CSS transitions
+                }}
+                modules={[Autoplay]}
+                className="unique-swiper-class w-full h-full"
+                onInit={(swiper) => {
+                  console.log("Swiper initialized", swiper.autoplay); // Debug check
+                }}
+              >
+                {Slides.map((slide, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="relative w-full h-full">
+                      <img
+                        src={slide.src}
+                        alt={slide.caption}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                        <div>
+                          <p className="text-white font-bold text-xl">
+                            {slide.caption}
+                          </p>
+                          <p className="text-gray-200 text-sm mt-1 flex items-center">
+                            <FaMapMarkerAlt className="mr-1" />
+                            {index === 0 ? "Jafna Library" : slide.caption}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
 
             {/* Smaller images (right) */}
@@ -964,8 +1102,10 @@ const Student = () => {
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Free Guardian</h3>
-              <p className="text-gray-600 capitalize">1 Free ticket for Staff/Guardian</p>
+              <h3 className="text-xl font-bold mb-2">Staff (or) Guardian</h3>
+              <p className="text-gray-600 ">
+                Staff or guardian is mandatory for the group
+              </p>
             </div>
           </div>
 

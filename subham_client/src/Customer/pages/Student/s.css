@@ -8,29 +8,6 @@
   }
 }
 
-.price_section {
-  background: url("../../../assets/student/student/university.webp") no-repeat 40% 10%;
-  background-size: cover;
-  height: 80vh;
-}
-
-@media (max-width:430px) {
-    
-.price_section {
-  background: url("../../../assets/student/student/university.webp") no-repeat 40% 10%;
-  background-size: cover;
-  height: 60vh !important;
-}
-}
-@media (max-width:390px) {
-    
-.price_section {
-  background: url("../../../assets/student/student/university.webp") no-repeat 40% 10%;
-  background-size: cover;
-  height: 80vh !important;
-}
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
   transform-origin: bottom left;
@@ -56,7 +33,6 @@
   padding-right: 15px;
   border-right: 1px solid #f59e0b;
 }
-
 
 .book-spine {
   position: absolute;
@@ -113,3 +89,106 @@
   color: #dc2626;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient 4s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.text-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* bg slider */
+
+.price_section {
+  background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp")
+    no-repeat 40% 10%;
+  background-size: cover;
+  animation: bgChange 18s steps(100) 2s infinite alternate;
+  height: 80vh;
+}
+
+@media (max-width: 430px) {
+  .price_section {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp")
+      no-repeat 40% 10%;
+    background-size: cover;
+    animation: bgChange 18s linear 2s infinite alternate;
+    height: 70vh !important;
+  }
+}
+@media (max-width: 390px) {
+  .price_section {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp")
+      no-repeat 40% 10%;
+    background-size: cover;
+    animation: bgChange 18s linear 2s infinite alternate;
+    height: 80vh !important;
+  }
+}
+
+@keyframes bgChange {
+  0% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+  20% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141664/Subham/1754141663778.jpg")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+  40% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141605/Subham/1754141605117.jpg")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+  60% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141795/Subham/1754141794892.jpg")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+  80% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141492/Subham/1754141492161.jpg")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+  100% {
+    background: url("https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141858/Subham/1754141857466.jpg")
+      no-repeat 40% 10%;
+    background-size: cover;
+  }
+}
+
+/* const Slides = [
+    
+    {
+      src: "",
+      caption: "Dambakolapatuna Port",
+    },
+
+    {
+      src: "",
+      caption: "University of Jaffna / Farm visit",
+    },
+  ]; */
