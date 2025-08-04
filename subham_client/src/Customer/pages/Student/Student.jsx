@@ -408,7 +408,7 @@ const studentTour = {
             "Point Pedro – Northernmost tip: Study of geography, local fishermen life",
             "Dambakolapatuna Port – Buddhism & trade routes",
           ],
-          note: "Lunch en route",
+          note: "Lunch In route",
           noteIcon: "Breakfast",
         },
         {
@@ -630,7 +630,7 @@ const Student = () => {
 
   const inclusions = [
     "Ferry tickets",
-    "2 nights hotel stay with breakfast ",
+    "2 Nights Hotel stay with Breakfast ",
     "Local Sightseeing Transportation.",
     "Tamil and English Speaking Guide",
   ];
@@ -1134,7 +1134,7 @@ const Student = () => {
               <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Staff (or) Guardian</h3>
               <p className="text-gray-600 ">
-                Staff or Guardian is mandatory for the group
+                Staff or Guardian is mandatory for the group tour
               </p>
             </div>
           </div>
