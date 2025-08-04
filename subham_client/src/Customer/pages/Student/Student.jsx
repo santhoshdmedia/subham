@@ -44,6 +44,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { IMAGE_HELPER } from "../../../helper/Imagehelper";
+import { ICON_HELPER } from "../../../helper/IconHelper";
+import { Link } from "react-router-dom";
 import "./s.css";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
@@ -518,6 +520,19 @@ const Student = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedDay, setExpandedDay] = useState(1);
+   const socialIcons = [
+    {
+      id: 1,
+      title: ICON_HELPER.FACEBOOK_ICON,
+      path: "https://www.facebook.com/share/18qKefQnzg/",
+    },
+ 
+    {
+      id: 3,
+      title: ICON_HELPER.INSTAGRAM_ICON,
+      path: "https://www.instagram.com/sail_subham?igsh=MWtvOWxrMHVrYWp5eg==",
+    },
+  ];
 
   const images = [
     {
@@ -642,18 +657,33 @@ const Student = () => {
                 <img
                   src={IMAGE_HELPER.SubhamLogo}
                   alt="logo"
-                  className="w-[100px] md:w-[140px]"
+                  className="w-[70px] md:w-[140px]"
                 />
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+           
+            <div className="flex gap-2  items-center justify-end lg:justify-center ">
+              <div className="flex items-center lg:space-x-4 space-x-2 ">
               <a
                 href="tel:+919087143535"
-                className="bg-white text-md lg:text-lg text-orange-600 focus:outline-none px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
+                className="bg-white text-[10px] lg:text-lg text-orange-600 focus:outline-none px-2 lg:px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="lg:w-5 w-3 lg:h-5 h-3 mr-2" />
                 +91 90871 43535
               </a>
+            </div>
+             <div className="flex lg:space-x-4 space-x-2">
+                {socialIcons.map((Icon) => (
+                  <Link
+                    key={Icon.id}
+                    to={Icon.path}
+                    target="_blank"
+                    className="text-gray-400 hover:text-white hover:bg-primary hover:border-primary rounded-full border p-1 text-sm"
+                  >
+                    <Icon.title className="p-0.5" />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -1325,7 +1355,9 @@ const Student = () => {
               <Mail className="w-5 h-5 mr-2" />
               Get Quote
             </button>
+            
           </div>
+          
           {isModalOpen && (
             <motion.div
               initial={{ opacity: 0 }}
