@@ -12,7 +12,7 @@ const CustomerLayout = () => {
 
   // Check if current route is 'surprice'
   const isSurpriceRoute = [
-    ,
+    
     "payanam/groupmadhu",
     "vasan-tour-package",
     "madha-register",

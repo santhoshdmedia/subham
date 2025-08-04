@@ -660,7 +660,7 @@ const Student = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative lg:py-20 py-8  text-white bg-cover bg-center h-[80vh]">
+      <section className="relative lg:py-20 py-8  text-white bg-cover bg-center h-[90vh] lg:h-[80vh]">
         {/* Overlay */}
         <div className="absolute inset-0 z-0">
           <Swiper
@@ -669,7 +669,7 @@ const Student = () => {
             loop={true}
             autoplay={{
               // lowercase 'a' and object format
-              delay: 2000,
+              delay: 4000,
               disableOnInteraction: false,
             }}
             modules={[Autoplay]} // Add the Autoplay module
@@ -688,7 +688,7 @@ const Student = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/40 z-10"></div>
         </div>
         <div className="relative lg:max-w-[80%] w-[100%] mx-auto px-4 sm:px-6 lg:px-8">
           <div class=" flex items-center justify-center p-4">
