@@ -491,7 +491,7 @@ const activityIcons = {
 const Slides = [
   {
     src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp",
-    caption: "Jafna fort",
+    caption: "Jafna Fort",
   },
   {
     src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141492/Subham/1754141492161.jpg",
@@ -635,7 +635,7 @@ const Student = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-1  lg:py-3">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <div>
@@ -649,10 +649,10 @@ const Student = () => {
             <div className="flex items-center space-x-4">
               <a
                 href="tel:+919087143535"
-                className="bg-white text-orange-600 focus:outline-none px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
+                className="bg-white text-md lg:text-lg text-orange-600 focus:outline-none px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                +919087143535
+                +91 90871 43535
               </a>
             </div>
           </div>
@@ -703,7 +703,7 @@ const Student = () => {
                 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 
                 animate-gradient text-transparent bg-clip-text drop-shadow-[0_3px_3px_rgba(235,133,25,0.4)]"
               >
-                Explore Northern Sri Lanka
+                Explore Northern Lanka
               </h2>
 
               <p class="text-md md:text-2xl mb-6 font-medium text-gray-200 drop-shadow-lg">
@@ -946,12 +946,12 @@ const Student = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                         <div>
-                          <p className="text-white font-bold text-xl">
+                          <p className="text-white font-bold text-sm lg:text-xl">
                             {slide.caption}
                           </p>
-                          <p className="text-gray-200 text-sm mt-1 flex items-center">
+                          <p className="text-gray-200 text-[12px] mt-1 flex items-center">
                             <FaMapMarkerAlt className="mr-1" />
-                            {index === 0 ? "Jafna Library" : slide.caption}
+                            Sri lankha
                           </p>
                         </div>
                       </div>
@@ -997,7 +997,7 @@ const Student = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                 <div>
-                  <p className="text-white font-bold text-xl">
+                  <p className="text-white font-bold text-md lg:text-xl">
                     {images[5]?.caption}
                   </p>
                   <p className="text-gray-200 text-sm mt-1 flex items-center">
@@ -1104,7 +1104,7 @@ const Student = () => {
               <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Staff (or) Guardian</h3>
               <p className="text-gray-600 ">
-                Staff or guardian is mandatory for the group
+                Staff or Guardian is mandatory for the group
               </p>
             </div>
           </div>
@@ -1307,10 +1307,10 @@ const Student = () => {
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <a
               href="tel:+919087143535"
-              className="bg-white text-orange-600 px-8 focus:outline-none py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
+              className="bg-white text-orange-600 lg:px-8 px-4 focus:outline-none py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center  justify-center text-[12px] lg:text-lg"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call Now: +91-9087143535
+              Call Now: +91 90871 43535
             </a>
             <button
               onClick={() => {
