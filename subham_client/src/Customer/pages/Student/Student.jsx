@@ -361,7 +361,7 @@ const studentTour = {
 
         {
           time: "12:30 PM",
-          activity: "Check-in to hotel | Packed Sri Lankan Lunch",
+          activity: "Check-in to hotel ",
           activity_icon: "Hotel",
         },
         {
