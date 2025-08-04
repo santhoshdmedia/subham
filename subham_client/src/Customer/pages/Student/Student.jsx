@@ -694,7 +694,7 @@ const Student = () => {
           <div class=" flex items-center justify-center p-4">
             <div class="text-center max-w-4xl">
               {/* Main heading with animated gradient */}
-              <h1 class="text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-white bg-clip-text drop-shadow-[0_5px_5px_rgba(235,133,25,0.4)] text-pulse">
+              <h1 class="text-4xl md:text-7xl font-bold mb-4 md:mb-6 text-white bg-clip-text drop-shadow-[0_5px_5px_rgba(235,133,25,0.4)] text-pulse">
                 Students Pack
               </h1>
 
@@ -706,12 +706,12 @@ const Student = () => {
                 Explore Northern Sri Lanka
               </h2>
 
-              <p class="text-lg md:text-2xl mb-6 font-medium text-gray-200 drop-shadow-lg">
+              <p class="text-md md:text-2xl mb-6 font-medium text-gray-200 drop-shadow-lg">
                 2 Nights / 3 Days Student Tour Package
               </p>
 
               {/* Tags with animated hover effects */}
-              <div class="flex flex-wrap justify-center gap-4 mb-8 text-md lg:text-lg font-semibold">
+              <div class="flex flex-wrap justify-center gap-4 mb-8 text-sm lg:text-lg font-semibold">
                 <span
                   class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-full border border-amber-400/30 
                   hover:scale-105 transition-transform duration-300"
@@ -733,7 +733,7 @@ const Student = () => {
               </div>
 
               {/* Info items with improved layout */}
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-lg text-gray-200 font-medium max-w-lg mx-auto">
+              <div class="flex flex-wrap justify-center gap-6 text-md text-gray-200 font-medium max-w-lg mx-auto">
                 <div class="flex items-center justify-center">
                   <span class="w-8 h-8 mr-3 text-amber-300">
                     <svg
