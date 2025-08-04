@@ -513,7 +513,7 @@ const testimonials = [
     name: "Celine Rajesh",
     location: "Trichy, Tamil Nadu",
     message:
-      "What a blessed pilgrimage! These three days in 2025 were filled with hope, faith, and beautiful memories. The journey was perfectly organized, and we felt God’s presence throughout. Thank you to everyone who traveled with us—may we continue to pray for each other. A truly uplifting experience!",
+      "A pilgrims moment experienced  these three days in this special year 2025,pilgrimage of hope,we Cruze and Celine thank each and everyone who travelled along with us in this journey of hope and faith in our Lord.Surely God's abundant blessings will be on each one of us, let's be remembered in our daily prayers.thankyou.",
     stars: 5,
   },
   {
@@ -521,7 +521,7 @@ const testimonials = [
     name: "Santhiya Vincent",
     location: "Trichy, Tamil Nadu",
     message:
-      "The Jaffna tour by Payanam Group was wonderful! Pradeepa Mam and the team took great care of us, making the pilgrimage smooth and memorable. Every destination was special, and I returned home with a heart full of gratitude. Highly recommended!",
+      "A pilgrims moment experienced  these three days in this special year 2025,pilgrimage of hope,we Cruze and Celine thank each and everyone who travelled along with us in this journey of hope and faith in our Lord.Surely God's abundant blessings will be on each one of us, let's be remembered in our daily prayers.thankyou.",
     stars: 5,
   },
   {
@@ -529,7 +529,7 @@ const testimonials = [
     name: "Vincent",
     location: "Trichy, Tamil Nadu",
     message:
-      "A well-organized pilgrimage with Payanam Group! Pradeepa Mam’s efforts made the trip enjoyable, though I missed visiting Thalai Mannar due to time constraints. The churches and spring water sites were spiritually enriching. Looking forward to the next tour with better time management!",
+      "Thank you pradeepa Your are good organisation But I am miss you thalai mannar Miss you old church and spring water Because passenger not cooperate Next time you proper shelduld and keep time your self Thanks",
     stars: 5,
   },
 ];
@@ -1083,7 +1083,7 @@ const Student = () => {
                       const shouldTruncate = words.length > 50;
                       const displayMessage =
                         shouldTruncate && !expanded
-                          ? words.slice(0, 20).join(" ") + "..."
+                          ? words.slice(0, 30).join(" ") + "..."
                           : review.message;
       
                       return (
@@ -1091,7 +1091,7 @@ const Student = () => {
                           <motion.div
                             whileHover={{ y: -5 }}
                             className={`bg-white p-6 rounded-lg shadow-md  ${
-                              expanded ? "h-full" : "lg:h-[380px] h-[400px]"
+                              expanded ? "h-full" : "lg:h-[320px] h-[350px]"
                             } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
                           >
                             <div>
