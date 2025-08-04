@@ -392,7 +392,7 @@ const studentTour = {
       schedule: [
         {
           time: "7:30 AM",
-          activity: " Hotel Breakfast (LKR 550)",
+          activity: " Hotel Breakfast ",
           activity_icon: "Breakfast",
         },
         {
@@ -489,11 +489,59 @@ const activityIcons = {
   explore: <GrOverview className="text-green-500" />,
   default: <GiSundial className="text-gray-500" />,
 };
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const slideUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const testimonials = [
+  {
+    initial: "J",
+    name: "Jenitha Deepa",
+    location: "Trichy, Tamil Nadu",
+    message:
+      "The Jaffna pilgrimage organized by Payanam Group was truly divine! Pradeepa Mam and the team ensured every moment was spiritually uplifting. Visiting the historic churches, the iconic Jaffna Public Library, and enjoying the scenic ferry ride made this journey unforgettable. The well-planned schedule, comfortable hotel stay, and seamless coordination made it a perfect pilgrimage. Thank you for this incredible experience! 🙏🏼✨",
+    stars: 5,
+  },
+  {
+    initial: "C",
+    name: "Celine Rajesh",
+    location: "Trichy, Tamil Nadu",
+    message:
+      "What a blessed pilgrimage! These three days in 2025 were filled with hope, faith, and beautiful memories. The journey was perfectly organized, and we felt God’s presence throughout. Thank you to everyone who traveled with us—may we continue to pray for each other. A truly uplifting experience!",
+    stars: 5,
+  },
+  {
+    initial: "S",
+    name: "Santhiya Vincent",
+    location: "Trichy, Tamil Nadu",
+    message:
+      "The Jaffna tour by Payanam Group was wonderful! Pradeepa Mam and the team took great care of us, making the pilgrimage smooth and memorable. Every destination was special, and I returned home with a heart full of gratitude. Highly recommended!",
+    stars: 5,
+  },
+  {
+    initial: "V",
+    name: "Vincent",
+    location: "Trichy, Tamil Nadu",
+    message:
+      "A well-organized pilgrimage with Payanam Group! Pradeepa Mam’s efforts made the trip enjoyable, though I missed visiting Thalai Mannar due to time constraints. The churches and spring water sites were spiritually enriching. Looking forward to the next tour with better time management!",
+    stars: 5,
+  },
+];
 
 const Slides = [
   {
     src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp",
     caption: "Jafna Fort",
+  },
+  {
+    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754295380/Subham/1754295379867.jpg",
+    caption: "Jafna Public Librarey",
   },
   {
     src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141492/Subham/1754141492161.jpg",
@@ -568,47 +616,6 @@ const Student = () => {
     return key ? activityIcons[key] : activityIcons.default;
   };
 
-  const itinerary = [
-    {
-      day: "Day 1",
-      title: "Arrival & Coastal Orientation",
-      activities: [
-        "6:30 AM: Assemble at Nagapattinam Port",
-        "7:30 AM – 11:30 AM: Ferry ride to KKS (Packed Indian-style breakfast – Free)",
-        " Learning Opportunity: Observe international marine routes, discuss ferry transportation, customs & immigration process",
-        "12:30 PM: Check-in to hotel | Packed Sri Lankan Lunch",
-        "2:00 – 6:30 PM: Beachside Games & Coastal Ecosystem Activities",
-        "Ice-breaking games, Team building tasks, Sand study, tide observation",
-        "Environmental awareness discussion (plastic waste, tide behavior)",
-        "8:00 PM: Dinner at hotel ",
-        "9:00 PM: Lights off / Reflection writing on ferry experience ",
-      ],
-    },
-    {
-      day: "Day 2",
-      title: " City Discovery & Heritage Study",
-      activities: [
-        "7:30 AM: Hotel Breakfast (LKR 550)",
-        "Explore Keerimalai Natural Spring & Naguleswaram Temple",
-        "Visit Point Pedro – northernmost tip of Sri Lanka",
-        "Relax at Casuarina Beach – eco-learning activities",
-        "Optional: Jaffna Market Walk – local crafts and lifestyle",
-        "Evening reflection session or group activity",
-        "Overnight stay in Jaffna",
-      ],
-    },
-    {
-      day: "Day 3",
-      title: "Eco-Activity | Return to India",
-      activities: [
-        "Early morning beach walk / clean-up drive",
-        "Breakfast & quick local shopping",
-        "Return transfer to Kankesanthurai Port",
-        "Ferry back to Nagapattinam",
-        "Tour ends with educational feedback session",
-      ],
-    },
-  ];
 
   const learningOutcomes = [
     {
@@ -1040,6 +1047,101 @@ const Student = () => {
           )}
         </div>
       </section>
+            {/* Testimonials Section */}
+            <motion.section
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="bg-white py-16 px-4 sm:px-6 lg:px-8"
+            >
+              <div className="max-w-7xl mx-auto">
+                <motion.h2
+                  variants={slideUp}
+                  className="text-3xl font-bold text-center text-primary mb-12"
+                >
+                  Pilgrim Experiences
+                </motion.h2>
+      
+                <motion.div variants={fadeIn}>
+                  <Swiper
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    breakpoints={{
+                      640: { slidesPerView: 1.5 },
+                      768: { slidesPerView: 2 },
+                      1024: { slidesPerView: 3 },
+                    }}
+                    centeredSlides={false}
+                    loop={true}
+                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    modules={[Autoplay]}
+                    className="!pb-12"
+                  >
+                    {testimonials.map((review, index) => {
+                      const [expanded, setExpanded] = useState(false);
+                      const words = review.message.split(" ");
+                      const shouldTruncate = words.length > 50;
+                      const displayMessage =
+                        shouldTruncate && !expanded
+                          ? words.slice(0, 20).join(" ") + "..."
+                          : review.message;
+      
+                      return (
+                        <SwiperSlide key={index}>
+                          <motion.div
+                            whileHover={{ y: -5 }}
+                            className={`bg-white p-6 rounded-lg shadow-md  ${
+                              expanded ? "h-full" : "lg:h-[380px] h-[400px]"
+                            } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
+                          >
+                            <div>
+                              <div className="flex items-center mb-4">
+                                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
+                                  {review.initial}
+                                </div>
+                                <div className="flex flex-col justify-start items-start gap-0">
+                                  <h4 className="font-semibold">{review.name}</h4>
+                                  <p className="text-gray-500 text-sm">
+                                    {review.location}
+                                  </p>
+                                </div>
+                              </div>
+                              <p className="text-gray-700 mb-4 text-justify">
+                                "{displayMessage}"
+                              </p>
+                            </div>
+                            <div className="flex flex-col">
+                              {shouldTruncate && (
+                                <button
+                                  onClick={() => setExpanded(!expanded)}
+                                  className="text-primary text-sm font-medium mb-2 self-start hover:underline"
+                                >
+                                  {expanded ? "Show Less" : "Show More"}
+                                </button>
+                              )}
+                              <div className="flex items-center text-primary">
+                                <span className="text-black font-semibold mr-2">
+                                  Review:
+                                </span>
+                                {[...Array(review.stars)].map((_, i) => (
+                                  <svg
+                                    key={i}
+                                    className="w-5 h-5 fill-current"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                  </svg>
+                                ))}
+                              </div>
+                            </div>
+                          </motion.div>
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
+                </motion.div>
+              </div>
+            </motion.section>
 
       {/* Ferry Travel Details */}
       <section className="py-16 bg-blue-50">
