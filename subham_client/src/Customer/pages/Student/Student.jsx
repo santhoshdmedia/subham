@@ -353,7 +353,7 @@ const studentTour = {
         },
         {
           time: "7:30 AM– 11:30 AM",
-          activity: " Ferry ride to KKS (Packed Indian-style breakfast – Free)",
+          activity: " Ferry ride to KKS ",
           note: "Learning Opportunity: Observe international marine routes, discuss ferry transportation, customs & immigration process",
           activity_icon: "Ferry departs",
           noteIcon: "book",
