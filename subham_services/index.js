@@ -20,28 +20,13 @@ const allowedOrigins = [
   'https://62.72.58.252',          // VPS IP (HTTPS)
   'http://localhost:8000',         // Local development
 ];
+app.use(cors({
+  origin: ["https://sailsubham.com", "https://www.sailsubham.com"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 
-// Configure CORS with proper origin handling
-app.use(
-  cors({
-    origin: function(origin, callback) {
-      // Allow requests with no origin (like mobile apps, curl requests)
-      if (!origin) return callback(null, true);
-      
-      // Check if the origin is in the allowed list
-      if (allowedOrigins.indexOf(origin) === -1) {
-        // If not in allowed origins, still allow but log it
-        console.log('CORS request from unauthorized origin:', origin);
-      }
-      
-      // Allow all origins but with proper CORS headers
-      return callback(null, true);
-    },
-    credentials: true,            // Allow credentials (cookies, authorization headers)
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  })
-);
 
 app.use(express.json());
 
