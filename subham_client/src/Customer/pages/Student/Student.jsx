@@ -515,31 +515,31 @@ const testimonials = [
     name: "Jenitha Deepa",
     location: "Trichy, Tamil Nadu",
     message:
-      "The Jaffna pilgrimage organized by Payanam Group was truly divine! Pradeepa Mam and the team ensured every moment was spiritually uplifting. Visiting the historic churches, the iconic Jaffna Public Library, and enjoying the scenic ferry ride made this journey unforgettable. The well-planned schedule, comfortable hotel stay, and seamless coordination made it a perfect pilgrimage. Thank you for this incredible experience! 🙏🏼✨",
-    stars: 5,
+      "Excellent coordination by the Subham team! From the enquiry staff to the entire crew — including the driver, homestay hosts, and guide — everyone was warm and friendly. The accommodation and vehicle condition were outstanding. My team and I are truly grateful for such a wonderful experience.",
+      stars: 5,
   },
   {
     initial: "C",
     name: "Celine Rajesh",
     location: "Trichy, Tamil Nadu",
     message:
-      "A pilgrims moment experienced  these three days in this special year 2025,pilgrimage of hope,we Cruze and Celine thank each and everyone who travelled along with us in this journey of hope and faith in our Lord.Surely God's abundant blessings will be on each one of us, let's be remembered in our daily prayers.thankyou.",
-    stars: 5,
+      "We are very happy to share that our Sri Lanka Students Tour was wonderfully arranged by the well-experienced team at Subham Tours. The staff were extremely helpful, responsive, and handled every situation with great professionalism — truly commendable service!",
+       stars: 5,
   },
   {
     initial: "S",
     name: "Santhiya Vincent",
     location: "Trichy, Tamil Nadu",
     message:
-      "A pilgrims moment experienced  these three days in this special year 2025,pilgrimage of hope,we Cruze and Celine thank each and everyone who travelled along with us in this journey of hope and faith in our Lord.Surely God's abundant blessings will be on each one of us, let's be remembered in our daily prayers.thankyou.",
-    stars: 5,
+      "Subham Ferry offers one of the best international travel experiences by sea, creating countless memorable moments along the way. We are truly happy to have traveled with them.",
+      stars: 5,
   },
   {
     initial: "V",
     name: "Vincent",
     location: "Trichy, Tamil Nadu",
     message:
-      "Thank you pradeepa Your are good organisation But I am miss you thalai mannar Miss you old church and spring water Because passenger not cooperate Next time you proper shelduld and keep time your self Thanks",
+      "Had an amazing SriLanka trip organized by Sail Subham – everything was seamless and perfectly planned. Special thanks to Subham Ferry for ensuring a safe, comfortable, and memorable journey from start to finish",
     stars: 5,
   },
 ];
@@ -1069,7 +1069,7 @@ const Student = () => {
                   variants={slideUp}
                   className="text-3xl font-bold text-center text-primary mb-12"
                 >
-                  Pilgrim Experiences
+                  User Experiences
                 </motion.h2>
       
                 <motion.div variants={fadeIn}>
@@ -1101,7 +1101,7 @@ const Student = () => {
                           <motion.div
                             whileHover={{ y: -5 }}
                             className={`bg-white p-6 rounded-lg shadow-md  ${
-                              expanded ? "h-full" : "lg:h-[320px] h-[350px]"
+                              expanded ? "h-full" : "lg:h-[400px] h-[4000px]"
                             } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
                           >
                             <div>
