@@ -14,6 +14,7 @@ import _ from "lodash";
 import { get_background_image, get_pop_message, getAllpackages } from "../../api";
 import { MdMessage } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa6";
+import "./Hero.css";
 
 const Hero = () => {
   const ripplesRef = useRef();
@@ -99,6 +100,31 @@ const Hero = () => {
         >
           <ICON_HELPER.ACCOMMODATION_ICON className="text-xl bg-white/20 p-1 rounded-full" />
           Book Ferry Ticket
+        </Link>
+
+        {/* Enhanced Book-shaped Price Tag - Moved to center right */}
+        <Link 
+          to="https://sailsubham.com/students-tour-package" 
+          target="_blank"
+          className="absolute lg:right-12 right-4 top-1/2 -translate-y-1/2 animate-float z-30"
+        >
+        <div className="book">
+            <div className="book-cover bg-gradient-to-br from-amber-100 to-amber-50 text-orange-900">
+              <div className="ribbon bg-gradient-to-r from-orange-600 to-amber-600">
+                STUDENT'S DEAL
+              </div>
+              <div className="text-center special">
+                <h3 className="font-bold special-head text-xl mb-1">Student's Package Tour</h3>
+                <div className="price-display">
+                  <span className="original-price">₹15,000</span>
+                  <span className="discounted-price">₹9,999</span>
+                </div>
+              
+                <div className="book-spine bg-gradient-to-b from-amber-600 to-amber-700"></div>
+              </div>
+            </div>
+            <div className="book-page bg-amber-50/90"></div>
+          </div>
         </Link>
 
         {/* Packages Slider */}
@@ -268,6 +294,7 @@ const Hero = () => {
           </div>
         </Modal>
       )}
+
     </div>
   );
 };

@@ -365,6 +365,11 @@ const studentTour = {
           activity_icon: "Hotel",
         },
         {
+          time: "1:00 PM - 2:00 PM",
+          activity: "lunch ",
+          activity_icon: "breackfast",
+        },
+        {
           time: "2:00 – 6:30 PM",
           activity: "Beachside Games & Coastal Ecosystem Activities",
           attractions: [
@@ -375,13 +380,18 @@ const studentTour = {
           activity_icon: "Activity",
         },
         {
+          time: "6:30 – 7:30 PM",
+          activity: "Day experience writeup about Ferry experience",
+          activity_icon: "Activity",
+        },
+        {
           time: "8:00 PM",
           activity: "Dinner at hotel",
           activity_icon: "Breakfast",
         },
         {
           time: "9:00 PM",
-          activity: "Lights off / Reflection writing on ferry experience",
+          activity: "Lights off",
           activity_icon: "sleep",
         },
       ],
@@ -414,7 +424,7 @@ const studentTour = {
         {
           time: "6:30 PM – 8:00 PM",
           activity:
-            "Cultural Program or Guest Lecture on Tamil Literature/History",
+            "Cultural Program or Guest Lecture on Tamil Literature/History/ Reflection writing on day experience",
           activity_icon: "book",
           note: "Optional: Debate or quiz based on the day’s visit",
           noteIcon: "quiz",
