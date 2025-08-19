@@ -15,8 +15,8 @@ const contactMail = async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.USER,
-        pass: process.env.APP_PASS,
+        user: "info@sailsubham.com",
+        pass: "gwpm jztp hxou fmvp",
       },
     });
 
@@ -25,7 +25,7 @@ const contactMail = async (req, res) => {
 
     const mailOptions = {
       from: "email",
-      to: process.env.T0_EMAIL,
+      to: "info@sailsubham.com",
       subject: "Business Enquire Request",
       html: ejs.render(template, userDetails),
     };
