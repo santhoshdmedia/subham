@@ -4,6 +4,13 @@ const fs = require("fs");
 const path = require("path");
 
 const contactMail = async (req, res) => {
+  const {user,phone,mail,message}=req.body;
+  let userDetails={
+    name:user,
+    phone:phone,
+    email:mail,
+    message:message
+  }
   try {
     let transporter = nodemailer.createTransport({
       service: "gmail",
@@ -20,7 +27,7 @@ const contactMail = async (req, res) => {
       from: "email",
       to: process.env.T0_EMAIL,
       subject: "Business Enquire Request",
-      html: ejs.render(template, req.body),
+      html: ejs.render(template, userDetails),
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

@@ -185,7 +185,7 @@ const Contact = () => {
                 layout="vertical"
               >
                 <Form.Item
-                  name="name"
+                  name="user"
                   label={
                     <label className="font-pri_para font-bold text-gray-700">
                       Name
@@ -220,7 +220,7 @@ const Contact = () => {
                   </Form.Item>
                   <Form.Item
                     className="lg:w-80"
-                    name="email"
+                    name="mail"
                     label={
                       <label className="font-pri_para font-bold text-gray-700">
                         Email

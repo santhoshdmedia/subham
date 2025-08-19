@@ -14,7 +14,6 @@ import _ from "lodash";
 import { get_background_image, get_pop_message, getAllpackages } from "../../api";
 import { MdMessage } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa6";
-import "./Hero.css";
 
 const Hero = () => {
   const ripplesRef = useRef();
@@ -79,6 +78,8 @@ const Hero = () => {
     );
   }
 
+  const handleStudentNavigate=()=>navigation(`/students-tour-package`)
+
   return (
     <div 
       className="w-screen min-h-[800px] relative bg-cover bg-top bg-no-repeat lg:px-20 flex items-center justify-center" 
@@ -101,16 +102,14 @@ const Hero = () => {
           <ICON_HELPER.ACCOMMODATION_ICON className="text-xl bg-white/20 p-1 rounded-full" />
           Book Ferry Ticket
         </Link>
-
         {/* Enhanced Book-shaped Price Tag - Moved to center right */}
-        <Link 
-          to="https://sailsubham.com/students-tour-package" 
-          target="_blank"
-          className="absolute lg:right-12 right-4 top-1/2 -translate-y-1/2 animate-float z-30"
+        <div
+          className="absolute lg:right-12 right-[25%] top-[30%] -translate-y-1/2 animate-float z-30 cursor-pointer"
+          onClick={handleStudentNavigate}
         >
-        <div className="book">
+        <div className="book" >
             <div className="book-cover bg-gradient-to-br from-amber-100 to-amber-50 text-orange-900">
-              <div className="ribbon bg-gradient-to-r from-orange-600 to-amber-600">
+              <div className="translate-x-[100px] rotate-[25deg] font-bold text-white  text-[12px] w-fit p-2 bg-gradient-to-r from-red-600 to-amber-600">
                 STUDENT'S DEAL
               </div>
               <div className="text-center special">
@@ -125,7 +124,7 @@ const Hero = () => {
             </div>
             <div className="book-page bg-amber-50/90"></div>
           </div>
-        </Link>
+        </div>
 
         {/* Packages Slider */}
         <div className="w-full h-auto px-6 mt-52">
@@ -294,7 +293,6 @@ const Hero = () => {
           </div>
         </Modal>
       )}
-
     </div>
   );
 };

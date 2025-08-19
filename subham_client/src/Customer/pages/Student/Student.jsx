@@ -340,6 +340,7 @@ const Stumail = () => {
   );
 };
 
+
 const studentTour = {
   title: "BASILIC A TOUR – SRI LANKA",
   days: [
@@ -477,7 +478,7 @@ const studentTour = {
     "All timings are approximate and subject to change",
     "Itinerary may be adjusted based on weather conditions and local circumstances",
   ],
-};
+};;
 
 const activityIcons = {
   Assemble: <FaClock className="text-primary" />,
@@ -516,30 +517,30 @@ const testimonials = [
     location: "Trichy, Tamil Nadu",
     message:
       "Excellent coordination by the Subham team! From the enquiry staff to the entire crew — including the driver, homestay hosts, and guide — everyone was warm and friendly. The accommodation and vehicle condition were outstanding. My team and I are truly grateful for such a wonderful experience.",
-      stars: 5,
+    stars: 5,
   },
   {
     initial: "C",
     name: "Celine Rajesh",
-    location: "Trichy, Tamil Nadu",
+    location: "Thanjavur, Tamil Nadu",
     message:
-      "We are very happy to share that our Sri Lanka Students Tour was wonderfully arranged by the well-experienced team at Subham Tours. The staff were extremely helpful, responsive, and handled every situation with great professionalism — truly commendable service!",
-       stars: 5,
+      "We are very happy to share that our Sri Lanka Students Tour was wonderfully arranged by the well-experienced team at Subham Tours. The staff were extremely helpful, responsive, and handled every situation with great professionalism — truly commendable service.",
+    stars: 5,
   },
   {
     initial: "S",
     name: "Santhiya Vincent",
-    location: "Trichy, Tamil Nadu",
+    location: "Nagapatinam, Tamil Nadu",
     message:
       "Subham Ferry offers one of the best international travel experiences by sea, creating countless memorable moments along the way. We are truly happy to have traveled with them.",
-      stars: 5,
+    stars: 5,
   },
   {
     initial: "V",
     name: "Vincent",
-    location: "Trichy, Tamil Nadu",
+    location: "Pudukkottai, Tamil Nadu",
     message:
-      "Had an amazing SriLanka trip organized by Sail Subham – everything was seamless and perfectly planned. Special thanks to Subham Ferry for ensuring a safe, comfortable, and memorable journey from start to finish",
+      "Had an amazing SriLanka trip organized by Sail Subham – everything was seamless and perfectly planned. Special thanks to Subham Ferry for ensuring a safe, comfortable, and memorable journey from start to finish.",
     stars: 5,
   },
 ];
@@ -1093,7 +1094,7 @@ const Student = () => {
                       const shouldTruncate = words.length > 50;
                       const displayMessage =
                         shouldTruncate && !expanded
-                          ? words.slice(0, 30).join(" ") + "..."
+                          ? words.slice(0, 40).join(" ") + "..."
                           : review.message;
       
                       return (
@@ -1101,7 +1102,7 @@ const Student = () => {
                           <motion.div
                             whileHover={{ y: -5 }}
                             className={`bg-white p-6 rounded-lg shadow-md  ${
-                              expanded ? "h-full" : "lg:h-[400px] h-[4000px]"
+                              expanded ? "h-full" : "lg:h-[370px] h-[400px]"
                             } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
                           >
                             <div>

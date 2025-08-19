@@ -123,7 +123,7 @@ export const getresetdays = async () => await custom_request.get(`${BASE_URL}/da
 export const conatctForm = async (formdata) => await custom_request.post(`${BASE_URL}/contact/form_contact`, formdata);
 
 //MAIL
-export const mailform = async (data) => await axios.post(`${MAIL_HELPER}/submit_form`, data);
+export const mailform = async (data) => await axios.post(`${MAIL_HELPER}/contact/form_contact`, data);
 
 export const add_background_image = async (formdata) => await axios.post(`${BASE_URL}/hero/add_background_image`, formdata);
 export const get_background_image = async () => await axios.get(`${BASE_URL}/hero/get_background_image`);
