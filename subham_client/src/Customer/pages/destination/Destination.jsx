@@ -200,7 +200,7 @@ const Destination_india = () => {
                     </div>
 
                     <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 round font-semibold shadow">
-                      11% OFF
+                      33% OFF
                     </div>
                   </div>
                 </a>
