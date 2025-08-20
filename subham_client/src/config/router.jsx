@@ -21,124 +21,133 @@ import Settings from "../Admin/pages/settings/Settings";
 import HeroPage from "../Admin/pages/Hero/HeroPage";
 import Vasan from "../Customer/surprice/Vasan";
 import Register from "../Customer/pages/Surprice/Login/Register";
-import { LoginPage,MadhaRegister } from "../Customer/pages/Surprice/Login/Register";
+import { LoginPage, MadhaRegister } from "../Customer/pages/Surprice/Login/Register";
 import Mail from "../Customer/pages/Surprice/mail/Mail";
 import Enquiry from "../Customer/pages/Surprice/enquirey/Enquirey";
 import Vaibhamvam from "../Customer/pages/Surprice/destination/Vaibhamvam";
 import Madha from "../Customer/pages/madha/Madha";
 import ComingSoon from "../Customer/pages/Coming/Comingsoon";
 import Student from "../Customer/pages/Student/Student";
+import { Navigate } from "react-router-dom";
+
+
+const ProtectedRoute = ({ children }) => {
+  const isAuthenticated = localStorage.getItem('admin_token'); // or your auth logic
+  return isAuthenticated ? children : <Navigate to="/agent-login" />;
+};
+
+// Option 2: Remove ProtectedRoute if you don't need it yet
+// const ProtectedRoute = ({ children }) => children;
 
 // landing page
 let client_routes = [
   {
     path: "/",
     element: <CustomerLayout />,
-    children: [{ path: "/", element: <Home /> }],
+    children: [{ index: true, element: <Home /> }],
   },
   {
     path: "/Userprofile",
     element: <CustomerLayout />,
-    children: [{ path: "/Userprofile", element: <Userprofile /> }],
+    children: [{ index: true, element: <Userprofile /> }],
   },
   {
     path: "/aboutus",
     element: <CustomerLayout />,
-    children: [{ path: "/aboutus", element: <About /> }],
+    children: [{ index: true, element: <About /> }],
   },
   {
     path: "/destination",
     element: <CustomerLayout />,
-    children: [{ path: "/destination", element: <Destination /> }],
+    children: [{ index: true, element: <Destination /> }],
   },
   {
     path: "/destination-india",
     element: <CustomerLayout />,
-    children: [{ path: "/destination-india", element: <Destination_india /> }],
+    children: [{ index: true, element: <Destination_india /> }],
   },
   {
     path: "/destination-explore/:id",
     element: <CustomerLayout />,
-    children: [{ path: "/destination-explore/:id", element: <DestinationDetails /> }],
+    children: [{ index: true, element: <DestinationDetails /> }],
   },
   {
     path: "/contact",
     element: <CustomerLayout />,
-    children: [{ path: "/contact", element: <Contact /> }],
+    children: [{ index: true, element: <Contact /> }],
   },
   {
     path: "/blogs",
     element: <CustomerLayout />,
-    children: [{ path: "/blogs", element: <Blogs /> }],
+    children: [{ index: true, element: <Blogs /> }],
   },
   {
     path: "/privacypolicy",
     element: <CustomerLayout />,
-    children: [{ path: "/privacypolicy", element: <Privacypolicy /> }],
+    children: [{ index: true, element: <Privacypolicy /> }],
   },
   {
     path: "/travelpolicy",
     element: <CustomerLayout />,
-    children: [{ path: "/travelpolicy", element: <Travelpolicy /> }],
+    children: [{ index: true, element: <Travelpolicy /> }],
   },
   {
     path: "/termsandconditions",
     element: <CustomerLayout />,
-    children: [{ path: "/termsandconditions", element: <Termsandconditions /> }],
+    children: [{ index: true, element: <Termsandconditions /> }],
   },
   {
     path: "/explore-blogs/:id",
     element: <CustomerLayout />,
-    children: [{ path: "/explore-blogs/:id", element: <BlogDetails /> }],
+    children: [{ index: true, element: <BlogDetails /> }],
   },
   {
     path: "/client-tour",
     element: <CustomerLayout />,
-    children: [{ path: "/client-tour", element: <ClientTour /> }],
+    children: [{ index: true, element: <ClientTour /> }],
   },
   {
     path: "/vasan-tour-package",
     element: <CustomerLayout />,
-    children: [{ path: "/vasan-tour-package", element: <Vasan /> }],
+    children: [{ index: true, element: <Vasan /> }],
   },
   {
     path: "/new-register",
     element: <CustomerLayout />,
-    children: [{ path: "/new-register", element: <Register /> }],
+    children: [{ index: true, element: <Register /> }],
   },
   {
     path: "/madha-register",
     element: <CustomerLayout />,
-    children: [{ path: "/madha-register", element: <MadhaRegister /> }],
+    children: [{ index: true, element: <MadhaRegister /> }],
   },
   {
     path: "/Enquirey",
     element: <CustomerLayout />,
-    children: [{ path: "/Enquirey", element: <Mail /> }],
+    children: [{ index: true, element: <Mail /> }],
   },
   {
     path: "/Enquirey-view",
     element: <CustomerLayout />,
-    children: [{ path: "/Enquirey-view", element: <Enquiry /> }],
+    children: [{ index: true, element: <Enquiry /> }],
   },
   {
     path: "/vaibhavam/:id",
     element: <CustomerLayout />,
-    children: [{ path: "/vaibhavam/:id", element: <Vaibhamvam /> }],
+    children: [{ index: true, element: <Vaibhamvam /> }],
   },
   {
     path: "/payanam/groupmadhu",
     element: <CustomerLayout />,
-    children: [{ path: "/payanam/groupmadhu", element: <Madha /> }],
+    children: [{ index: true, element: <Madha /> }],
   },
   {
     path: "/students-tour-package",
     element: <CustomerLayout />,
-    children: [{ path: "/students-tour-package", element: <Student /> }],
+    children: [{ index: true, element: <Student /> }],
   }
-
-
 ];
+
 
 // dashboard
 let admin_routes = [
@@ -146,102 +155,24 @@ let admin_routes = [
     path: "/agent-login",
     element: <Login />,
   },
-
-  //   {
-  //     path: "/create-agent-account",
-  //     element: <Register />,
-  //   },
-  //   {
-  //     path: "/forgot-password",
-  //     element: <ForgotPassword />,
-  //   },
-  //   {
-  //     path: "/reset-password/:id",
-  //     element: <ResetPassword />,
-  //   },
-  //   {
-  //     path: "/select-role",
-  //     element: <SelectRole />,
-  //   },
-  // {
-  //   path: "/dashboard",
-  //   element: <AdminLayout />,
-  //   children: [{ path: "/dashboard", element: <Dashboard /> }],
-  // },
-  //   {
-  //     path: "/mybooking",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/mybooking", element: <Mybooking /> }],
-  //   },
-  //   {
-  //     path: "/add-employee",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/add-employee", element: <AddEmployee /> }],
-  //   },
-  //   {
-  //     path: "/employee-details",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/employee-details", element: <EmployeeDetails /> }],
-  //   },
-  //   {
-  //     path: "/customers",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/customers", element: <Customers /> }],
-  //   },
-  //   {
-  //     path: "/edit-employee/:id",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/edit-employee/:id", element: <AddEmployee /> }],
-  //   },
-  //   {
-  //     path: "/admin-blogs",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/admin-blogs", element: <AdminBlogs /> }],
-  //   },
   {
     path: "/admin-packages",
-    element: <AdminLayout />,
-    children: [{ path: "/admin-packages", element: <Package /> }],
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),    
+    children: [{ index: true, element: <Package /> }],
   },
   {
     path: "/hero-page",
     element: <AdminLayout />,
-    children: [{ path: "/hero-page", element: <HeroPage /> }],
+    children: [{ index: true, element: <HeroPage /> }],
   },
-  //   {
-  //     path: "/admin-tour",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/admin-tour", element: <Tour /> }],
-  //   },
-  //   {
-  //     path: "/profile",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/profile", element: <Profile /> }],
-  //   },
-  //   {
-  //     path: "/user_details/:id",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/user_details/:id", element: <Profile /> }],
-  //   },
-  //   {
-  //     path: "/change-password",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/change-password", element: <Changepassword /> }],
-  //   },
-  //   {
-  //     path: "/tour-details/:id",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/tour-details/:id", element: <TourDetails /> }],
-  //   },
-  //   {
-  //     path: "/task-details",
-  //     element: <AdminLayout />,
-  //     children: [{ path: "/task-details", element: <Task /> }],
-  //   },
   {
     path: "/settings",
     element: <AdminLayout />,
-    children: [{ path: "/settings", element: <Settings /> }],
+    children: [{ index: true, element: <Settings /> }],
   },
 ];
 
