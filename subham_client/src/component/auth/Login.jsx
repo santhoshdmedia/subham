@@ -74,19 +74,14 @@ const Login = () => {
               <Input.Password prefix={<LockOutlined />} placeholder="Enter your password" className="antd_input" />
             </Form.Item>
           </div>
-          <Link to="/forgot-password" className="sub_heading text-white pb-4 block text-end pr-10">
-            Forgot Password?
-          </Link>
-
+         
           <div className="px-10">
             <Form.Item>
               <Button loading={loading} htmlType="submit" className="primary_button !h-[46px] !w-full">
                 Login
               </Button>
             </Form.Item>
-            <Link to="/select-role" className="sub_heading !text-white hover:text-white pb-4 cursor-default block text-center">
-              Don&apos;t have an account? <span className="text-primary dark:text-red-500 underline cursor-pointer hover:text-white">Register</span> now.
-            </Link>
+            
           </div>
         </Form>
         <BorderAnimation />
