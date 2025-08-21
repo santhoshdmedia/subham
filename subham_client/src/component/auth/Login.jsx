@@ -4,8 +4,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 import { IMAGE_HELPER } from "../../helper/Imagehelper";
-import { adminToken, ERROR_NOTIFICATION, SUCCESS_NOTIFICATION } from "../../helper/admin/notification_helper";
-import { EmailValidation, PasswordValidation } from "../../helper/formValidation";
+import {
+  adminToken,
+  ERROR_NOTIFICATION,
+  SUCCESS_NOTIFICATION,
+} from "../../helper/admin/notification_helper";
+import {
+  EmailValidation,
+  PasswordValidation,
+} from "../../helper/formValidation";
 import { login } from "../../api";
 import BorderAnimation from "../BorderAnimation";
 import { LabelHelper } from "../LabelHelper";
@@ -60,28 +67,57 @@ const Login = () => {
           </Link>
         </div>
         <Link to={"/"} className="mb-6 w-full center_div">
-          <img src={IMAGE_HELPER.SubhamWhiteLogo} alt="Company Logo" className="w-40" />
+          <img
+            src={IMAGE_HELPER.SubhamWhiteLogo}
+            alt="Company Logo"
+            className="w-40"
+          />
         </Link>
-        <Form name="login" onFinish={onFinish} layout="vertical" initialValues={{ remember: true }} className="w-full">
+        <Form
+          name="login"
+          onFinish={onFinish}
+          layout="vertical"
+          initialValues={{ remember: true }}
+          className="w-full"
+        >
           <div className="flex justify-center items-center">
-            <Form.Item name="email" label={<LabelHelper title="Email" white={true} />} rules={[EmailValidation()]}>
-              <Input prefix={<MailOutlined />} placeholder="Enter your email" className="antd_input" />
+            <Form.Item
+              name="email"
+              label={<LabelHelper title="Email" white={true} />}
+              rules={[EmailValidation()]}
+            >
+              <Input
+                prefix={<MailOutlined />}
+                placeholder="Enter your email"
+                className="antd_input"
+              />
             </Form.Item>
           </div>
 
           <div className="flex justify-center items-center ">
-            <Form.Item name="password" label={<LabelHelper title="Password" white={true} />} rules={[PasswordValidation()]}>
-              <Input.Password prefix={<LockOutlined />} placeholder="Enter your password" className="antd_input" />
+            <Form.Item
+              name="password"
+              label={<LabelHelper title="Password" white={true} />}
+              rules={[PasswordValidation()]}
+            >
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Enter your password"
+                className="antd_input"
+              />
             </Form.Item>
           </div>
-         
+
           <div className="px-10">
             <Form.Item>
-              <Button loading={loading} htmlType="submit" className="primary_button !h-[46px] !w-full">
+              <Button
+                loading={loading}
+                htmlType="submit"
+                className="primary_button !h-[46px] !w-full"
+              >
                 Login
               </Button>
             </Form.Item>
-            
           </div>
         </Form>
         <BorderAnimation />

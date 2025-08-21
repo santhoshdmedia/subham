@@ -340,7 +340,6 @@ const Stumail = () => {
   );
 };
 
-
 const studentTour = {
   title: "BASILIC A TOUR – SRI LANKA",
   days: [
@@ -478,7 +477,7 @@ const studentTour = {
     "All timings are approximate and subject to change",
     "Itinerary may be adjusted based on weather conditions and local circumstances",
   ],
-};;
+};
 
 const activityIcons = {
   Assemble: <FaClock className="text-primary" />,
@@ -579,13 +578,13 @@ const Student = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedDay, setExpandedDay] = useState(1);
-   const socialIcons = [
+  const socialIcons = [
     {
       id: 1,
       title: ICON_HELPER.FACEBOOK_ICON,
       path: "https://www.facebook.com/share/18qKefQnzg/",
     },
- 
+
     {
       id: 3,
       title: ICON_HELPER.INSTAGRAM_ICON,
@@ -627,7 +626,6 @@ const Student = () => {
     return key ? activityIcons[key] : activityIcons.default;
   };
 
-
   const learningOutcomes = [
     {
       subject: "History",
@@ -648,8 +646,8 @@ const Student = () => {
 
   const inclusions = [
     "Ferry tickets",
-    "2 Nights Hotel stay with Breakfast ",
-    "Local Sightseeing Transportation.",
+    "2 Nights Hotel stay",
+    "Local Sightseeing AC Transportation.",
     "Tamil and English Speaking Guide",
   ];
 
@@ -679,18 +677,18 @@ const Student = () => {
                 />
               </div>
             </div>
-           
+
             <div className="flex gap-2  items-center justify-end lg:justify-center ">
               <div className="flex items-center lg:space-x-4 space-x-2 ">
-              <a
-                href="tel:+919087143535"
-                className="bg-white text-[10px] lg:text-lg text-orange-600 focus:outline-none px-2 lg:px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
-              >
-                <Phone className="lg:w-5 w-3 lg:h-5 h-3 mr-2" />
-                +91 90871 43535
-              </a>
-            </div>
-             <div className="flex lg:space-x-4 space-x-2">
+                <a
+                  href="tel:+919087143535"
+                  className="bg-white text-[10px] lg:text-lg text-orange-600 focus:outline-none px-2 lg:px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center"
+                >
+                  <Phone className="lg:w-5 w-3 lg:h-5 h-3 mr-2" />
+                  +91 90871 43535
+                </a>
+              </div>
+              <div className="flex lg:space-x-4 space-x-2">
                 {socialIcons.map((Icon) => (
                   <Link
                     key={Icon.id}
@@ -1058,101 +1056,101 @@ const Student = () => {
           )}
         </div>
       </section>
-            {/* Testimonials Section */}
-            <motion.section
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="bg-white py-16 px-4 sm:px-6 lg:px-8"
+      {/* Testimonials Section */}
+      <motion.section
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="bg-white py-16 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            variants={slideUp}
+            className="text-3xl font-bold text-center text-primary mb-12"
+          >
+            User Experiences
+          </motion.h2>
+
+          <motion.div variants={fadeIn}>
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 1.5 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              centeredSlides={false}
+              loop={true}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              modules={[Autoplay]}
+              className="!pb-12"
             >
-              <div className="max-w-7xl mx-auto">
-                <motion.h2
-                  variants={slideUp}
-                  className="text-3xl font-bold text-center text-primary mb-12"
-                >
-                  User Experiences
-                </motion.h2>
-      
-                <motion.div variants={fadeIn}>
-                  <Swiper
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    breakpoints={{
-                      640: { slidesPerView: 1.5 },
-                      768: { slidesPerView: 2 },
-                      1024: { slidesPerView: 3 },
-                    }}
-                    centeredSlides={false}
-                    loop={true}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    modules={[Autoplay]}
-                    className="!pb-12"
-                  >
-                    {testimonials.map((review, index) => {
-                      const [expanded, setExpanded] = useState(false);
-                      const words = review.message.split(" ");
-                      const shouldTruncate = words.length > 50;
-                      const displayMessage =
-                        shouldTruncate && !expanded
-                          ? words.slice(0, 40).join(" ") + "..."
-                          : review.message;
-      
-                      return (
-                        <SwiperSlide key={index}>
-                          <motion.div
-                            whileHover={{ y: -5 }}
-                            className={`bg-white p-6 rounded-lg shadow-md  ${
-                              expanded ? "h-full" : "lg:h-[370px] h-[400px]"
-                            } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
+              {testimonials.map((review, index) => {
+                const [expanded, setExpanded] = useState(false);
+                const words = review.message.split(" ");
+                const shouldTruncate = words.length > 50;
+                const displayMessage =
+                  shouldTruncate && !expanded
+                    ? words.slice(0, 40).join(" ") + "..."
+                    : review.message;
+
+                return (
+                  <SwiperSlide key={index}>
+                    <motion.div
+                      whileHover={{ y: -5 }}
+                      className={`bg-white p-6 rounded-lg shadow-md  ${
+                        expanded ? "h-full" : "lg:h-[370px] h-[400px]"
+                      } border border-gray-100 hover:shadow-lg transition-all duration-300  flex flex-col justify-between`}
+                    >
+                      <div>
+                        <div className="flex items-center mb-4">
+                          <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
+                            {review.initial}
+                          </div>
+                          <div className="flex flex-col justify-start items-start gap-0">
+                            <h4 className="font-semibold">{review.name}</h4>
+                            <p className="text-gray-500 text-sm">
+                              {review.location}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4 text-justify">
+                          "{displayMessage}"
+                        </p>
+                      </div>
+                      <div className="flex flex-col">
+                        {shouldTruncate && (
+                          <button
+                            onClick={() => setExpanded(!expanded)}
+                            className="text-primary text-sm font-medium mb-2 self-start hover:underline"
                           >
-                            <div>
-                              <div className="flex items-center mb-4">
-                                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-4">
-                                  {review.initial}
-                                </div>
-                                <div className="flex flex-col justify-start items-start gap-0">
-                                  <h4 className="font-semibold">{review.name}</h4>
-                                  <p className="text-gray-500 text-sm">
-                                    {review.location}
-                                  </p>
-                                </div>
-                              </div>
-                              <p className="text-gray-700 mb-4 text-justify">
-                                "{displayMessage}"
-                              </p>
-                            </div>
-                            <div className="flex flex-col">
-                              {shouldTruncate && (
-                                <button
-                                  onClick={() => setExpanded(!expanded)}
-                                  className="text-primary text-sm font-medium mb-2 self-start hover:underline"
-                                >
-                                  {expanded ? "Show Less" : "Show More"}
-                                </button>
-                              )}
-                              <div className="flex items-center text-primary">
-                                <span className="text-black font-semibold mr-2">
-                                  Review:
-                                </span>
-                                {[...Array(review.stars)].map((_, i) => (
-                                  <svg
-                                    key={i}
-                                    className="w-5 h-5 fill-current"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                  </svg>
-                                ))}
-                              </div>
-                            </div>
-                          </motion.div>
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                </motion.div>
-              </div>
-            </motion.section>
+                            {expanded ? "Show Less" : "Show More"}
+                          </button>
+                        )}
+                        <div className="flex items-center text-primary">
+                          <span className="text-black font-semibold mr-2">
+                            Review:
+                          </span>
+                          {[...Array(review.stars)].map((_, i) => (
+                            <svg
+                              key={i}
+                              className="w-5 h-5 fill-current"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* Ferry Travel Details */}
       <section className="py-16 bg-blue-50">
@@ -1422,7 +1420,7 @@ const Student = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 justify-center gap-4 max-w-4xl mx-auto">
             {inclusions.map((inclusion, index) => (
               <div
                 key={index}
@@ -1432,6 +1430,14 @@ const Student = () => {
                 <span className="text-gray-700">{inclusion}</span>
               </div>
             ))}
+          </div>
+          <div className="max-w-md mx-auto mt-4">
+            <div
+            className="flex items-center space-x-3 bg-white rounded-lg p-4 shadow"
+          >
+            <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+            <span className="text-gray-700">BreakFast, Lunch, Dinner</span>
+          </div>
           </div>
         </div>
       </section>
@@ -1468,9 +1474,8 @@ const Student = () => {
               <Mail className="w-5 h-5 mr-2" />
               Get Quote
             </button>
-            
           </div>
-          
+
           {isModalOpen && (
             <motion.div
               initial={{ opacity: 0 }}
