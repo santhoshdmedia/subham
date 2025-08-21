@@ -54,3 +54,10 @@
             text-align: justify;
         }
        }
+
+
+       .student_section{
+        background: url('../../../assets/image/stu_bg.webp') center center no-repeat;
+        background-size: cover;
+       }
+      

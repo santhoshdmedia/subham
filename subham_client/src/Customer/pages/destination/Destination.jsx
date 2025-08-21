@@ -94,9 +94,10 @@ const Destination_india = () => {
           </div>
         </div>
 
-        <section className="w-50% px-4 py-8 sm:px-[6vw] lg:py-14">
-          <div className="package-custom-details bg-amber-50 border-l-4 border-amber-500  rounded-r-lg">
-            <div className=" package-custom">
+        <section className="w-50%  px-4 py-8 sm:px-[6vw] lg:py-14 ">
+          <div className="student_section relative rounded-lg overflow-hidden p-10">
+            <div className="absolute w-full h-full bg-[#00000091] top-0 left-0"></div>
+            <div className=" package-custom relative z-10">
               <div className="custom-pack">
                 <a href="https://sailsubham.com/students-tour-package">
                   <div className="relative cursor-pointer bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden">
@@ -208,12 +209,12 @@ const Destination_india = () => {
 
               <div className="custom-details">
                 <div className="content">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-pri_head mb-6 text-primary">
-                    SPECIAL STUDENTS PACKAGE
-                  </h3>
+                    <h3 class="text-2xl bg-gradient-to-r from-orange-500 to-orange-100  bg-clip-text sm:text-3xl lg:text-4xl font-bold font-pri_head mb-6 text-transparent drop-shadow-md">
+                        SPECIAL STUDENT'S PACKAGE
+                    </h3>
                 </div>
 
-                <p className="text:xl pack-description w-70">
+                <p className="text:xl pack-description w-70 text-white">
                   Limited Time Offer! Student Tours for the Next{" "}
                   <b>6 Months –  Just ₹9,999</b>
                 </p>
