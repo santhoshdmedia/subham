@@ -1427,7 +1427,7 @@ const Student = () => {
                 className="flex items-center space-x-3 bg-white rounded-lg p-4 shadow"
               >
                 <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">{inclusion}</span>
+                <span className="text-gray-700 capitalize">{inclusion}</span>
               </div>
             ))}
           </div>
@@ -1436,7 +1436,7 @@ const Student = () => {
             className="flex items-center space-x-3 bg-white rounded-lg p-4 shadow"
           >
             <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-            <span className="text-gray-700">BreakFast, Lunch, Dinner</span>
+            <span className="text-gray-700 capitalize">BreakFast, Lunch, Dinner (All Meals)</span>
           </div>
           </div>
         </div>
