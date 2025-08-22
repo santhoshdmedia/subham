@@ -262,7 +262,7 @@ const Destination_india = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 pb-0 space-y-2 flex flex-col justify-between h-full">
+                    <div className="p-4 pb-0 space-y-2 flex flex-col justify-between ">
                       <div className="">
                         <div className="">
                           <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
