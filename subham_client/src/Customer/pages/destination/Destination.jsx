@@ -10,7 +10,7 @@ import { GiPriceTag } from "react-icons/gi";
 import { MdMessage } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 import "./destination.css";
-import Stu from"../../../assets/image/students.webp"
+import Stu from "../../../assets/image/students.webp";
 
 const Destination_india = () => {
   const [travelPackages, setTravelPackages] = useState([]);
@@ -209,9 +209,9 @@ const Destination_india = () => {
 
               <div className="custom-details">
                 <div className="content">
-                    <h3 class="text-2xl bg-gradient-to-r from-orange-500 to-orange-100  bg-clip-text sm:text-3xl lg:text-4xl font-bold font-pri_head mb-6 text-transparent drop-shadow-md">
-                        SPECIAL STUDENT'S PACKAGE
-                    </h3>
+                  <h3 class="text-2xl bg-gradient-to-r from-orange-500 to-orange-100  bg-clip-text sm:text-3xl lg:text-4xl font-bold font-pri_head mb-6 text-transparent drop-shadow-md">
+                    SPECIAL STUDENT'S PACKAGE
+                  </h3>
                 </div>
 
                 <p className="text:xl pack-description w-70 text-white">
@@ -243,68 +243,71 @@ const Destination_india = () => {
                 <div
                   key={item._id}
                   onClick={() => handleClick(item._id)}
-                  className="relative cursor-pointer bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden"
+                  className="relative cursor-pointer bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between"
                 >
-                  {/* Image */}
-                  <div className="h-48 overflow-hidden relative">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    {item.duration && (
-                      <div className="absolute bottom-2 right-2 flex items-center bg-white py-1 px-2 rounded font-semibold text-gray-500 text-sm gap-1">
-                        <Clock size={14} />
-                        <span>{item.duration}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 space-y-2">
-                    <div className="">
-                      <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
-                        {item.name}
-                      </h2>
+                  <div className="">
+                    {/* Image */}
+                    <div className="h-48 overflow-hidden relative">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      {item.duration && (
+                        <div className="absolute bottom-2 right-2 flex items-center bg-white py-1 px-2 rounded font-semibold text-gray-500 text-sm gap-1">
+                          <Clock size={14} />
+                          <span>{item.duration}</span>
+                        </div>
+                      )}
                     </div>
 
-                    {item.message_description && (
-                      <div
-                        className="flex flex-row items-start
+                    {/* Content */}
+                    <div className="p-4 space-y-2">
+                      <div className="">
+                        <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
+                          {item.name}
+                        </h2>
+                      </div>
+
+                      {item.message_description && (
+                        <div
+                          className="flex flex-row items-start
                               text-gray-600 text-sm font-semibold gap-1"
-                      >
-                        <div className="mt-1">
-                          <MdMessage size={14} className="mt-0.5" />
+                        >
+                          <div className="mt-1">
+                            <MdMessage size={14} className="mt-0.5" />
+                          </div>
+                          <span>{item.message_description}</span>
                         </div>
-                        <span>{item.message_description}</span>
-                      </div>
-                    )}
+                      )}
 
-                    <div className="flex items-center gap-2">
-                      <GiPriceTag size={16} className="text-primary" />
-                      <div className="flex items-center gap-1 text-primary text-lg font-bold">
-                        <div className="h-4 w-auto overflow-hidden shadow-sm">
-                          <img
-                            src={
-                              item.country === "india"
-                                ? "https://cdn.britannica.com/13/4413-050-98188B5C/Flag-Sri-Lanka.jpg"
-                                : "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/330px-Flag_of_India.svg.png"
-                            }
-                            alt="country-flag"
-                            className="w-full h-full object-cover"
-                          />
+                      <div className="flex items-center gap-2">
+                        <GiPriceTag size={16} className="text-primary" />
+                        <div className="flex items-center gap-1 text-primary text-lg font-bold">
+                          <div className="h-4 w-auto overflow-hidden shadow-sm">
+                            <img
+                              src={
+                                item.country === "india"
+                                  ? "https://cdn.britannica.com/13/4413-050-98188B5C/Flag-Sri-Lanka.jpg"
+                                  : "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/330px-Flag_of_India.svg.png"
+                              }
+                              alt="country-flag"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <span>
+                            {item.country === "india" ? "LKR" : "INR"}{" "}
+                            {item.discount_price}
+                          </span>
                         </div>
-                        <span>
+                        <div className="text-xs line-through text-gray-400 font-medium">
                           {item.country === "india" ? "LKR" : "INR"}{" "}
-                          {item.discount_price}
-                        </span>
-                      </div>
-                      <div className="text-xs line-through text-gray-400 font-medium">
-                        {item.country === "india" ? "LKR" : "INR"}{" "}
-                        {item.original_price}
+                          {item.original_price}
+                        </div>
                       </div>
                     </div>
-
+                  </div>
+                  <div className="p-4">
                     {/* View Button */}
                     <button
                       onClick={(e) => {
