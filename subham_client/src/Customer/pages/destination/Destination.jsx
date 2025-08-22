@@ -262,24 +262,26 @@ const Destination_india = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 pb-0 space-y-2">
+                    <div className="p-4 pb-0 space-y-2 flex flex-col justify-between">
                       <div className="">
-                        <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
-                          {item.name}
-                        </h2>
-                      </div>
-
-                      {item.message_description && (
-                        <div
-                          className="flex flex-row items-start
-                              text-gray-600 text-sm font-semibold gap-1"
-                        >
-                          <div className="mt-1">
-                            <MdMessage size={14} className="mt-0.5" />
-                          </div>
-                          <span>{item.message_description}</span>
+                        <div className="">
+                          <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
+                            {item.name}
+                          </h2>
                         </div>
-                      )}
+
+                        {item.message_description && (
+                          <div
+                            className="flex flex-row items-start
+                              text-gray-600 text-sm font-semibold gap-1"
+                          >
+                            <div className="mt-1">
+                              <MdMessage size={14} className="mt-0.5" />
+                            </div>
+                            <span>{item.message_description}</span>
+                          </div>
+                        )}
+                      </div>
 
                       <div className="flex items-center gap-2">
                         <GiPriceTag size={16} className="text-primary" />
