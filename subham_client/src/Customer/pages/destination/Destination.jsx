@@ -262,7 +262,7 @@ const Destination_india = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 space-y-2">
+                    <div className="p-4 pb-0 space-y-2">
                       <div className="">
                         <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
                           {item.name}
@@ -307,7 +307,7 @@ const Destination_india = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4">
+                  <div className="p-4 pt-0">
                     {/* View Button */}
                     <button
                       onClick={(e) => {
