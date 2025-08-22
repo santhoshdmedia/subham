@@ -21,7 +21,7 @@ const Destination_india = () => {
     minPrice: "",
     maxPrice: "",
     duration: "",
-    sortBy: "default"
+    sortBy: "price-low"
   });
   const navigation = useNavigate();
 
@@ -312,7 +312,7 @@ const Destination_india = () => {
         {/* Filter and Package Section */}
         <section className="w-full px-4 py-8 sm:px-[6vw] lg:py-10">
           {/* Filter Toggle Button - Only show on mobile */}
-          <div className="flex justify-end mb-6 md:hidden">
+          <div className=" justify-end mb-6 hidden">
             <button 
               onClick={toggleFilters}
               className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg shadow hover:bg-primary/90 transition"
@@ -324,7 +324,7 @@ const Destination_india = () => {
 
           <div className="">
             {/* Filter Panel - Always visible on desktop, conditional on mobile */}
-            <div className={`   ${showFilters ? 'block' : 'hidden'} md:block `}>
+            <div className={`   ${showFilters ? 'block' : 'hidden'} hidden `}>
               <h3 className="text-xl font-bold mb-4 text-primary">Filter Packages</h3>
               
               <div className="space-x-4 flex w-full">
@@ -381,7 +381,7 @@ const Destination_india = () => {
             {/* Packages Grid */}
             <div className="w-full">
               {/* Results Count */}
-              <div className="mb-6">
+              <div className="mb-6 hidden">
                 <p className="text-gray-600">
                   Showing {filteredPackages.length} of {travelPackages.length} packages
                 </p>
