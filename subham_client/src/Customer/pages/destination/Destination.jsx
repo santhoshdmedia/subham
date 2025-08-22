@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IMAGE_HELPER } from "../../../helper/Imagehelper";
 import { get_srilanka_packages } from "../../../api";
 import _ from "lodash";
-import { Clock, Eye } from "lucide-react";
+import { Clock, Eye, Filter, X } from "lucide-react";
 import { GiPriceTag } from "react-icons/gi";
 import { MdMessage } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
@@ -14,7 +14,15 @@ import Stu from "../../../assets/image/students.webp";
 
 const Destination_india = () => {
   const [travelPackages, setTravelPackages] = useState([]);
+  const [filteredPackages, setFilteredPackages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
+  const [filters, setFilters] = useState({
+    minPrice: "",
+    maxPrice: "",
+    duration: "",
+    sortBy: "default"
+  });
   const navigation = useNavigate();
 
   useEffect(() => {
@@ -23,9 +31,11 @@ const Destination_india = () => {
         const result = await get_srilanka_packages();
         const fetchedPackages = _.get(result, "data.data", []);
         setTravelPackages(fetchedPackages);
+        setFilteredPackages(fetchedPackages);
       } catch (err) {
         console.error("Error fetching packages:", err);
         setTravelPackages([]);
+        setFilteredPackages([]);
       } finally {
         setLoading(false);
       }
@@ -38,8 +48,84 @@ const Destination_india = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    applyFilters();
+  }, [filters, travelPackages]);
+
+  // Check screen size on component mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      // Show filters by default on desktop (width >= 768px)
+      if (window.innerWidth >= 768) {
+        setShowFilters(true);
+      } else {
+        setShowFilters(false);
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleClick = (id) => {
     navigation(`/destination-explore/${id}`);
+  };
+
+  const applyFilters = () => {
+    let result = [...travelPackages];
+    
+   
+    
+    // Filter by duration
+    if (filters.duration) {
+      result = result.filter(pkg => {
+        if (!pkg.duration) return false;
+        const nights = parseInt(pkg.duration.split(" ")[0]);
+        return nights === Number(filters.duration);
+      });
+    }
+    
+    // Sort packages
+    if (filters.sortBy === "price-low") {
+      result.sort((a, b) => a.discount_price - b.discount_price);
+    } else if (filters.sortBy === "price-high") {
+      result.sort((a, b) => b.discount_price - a.discount_price);
+    } else if (filters.sortBy === "duration") {
+      result.sort((a, b) => {
+        const aNights = a.duration ? parseInt(a.duration.split(" ")[0]) : 0;
+        const bNights = b.duration ? parseInt(b.duration.split(" ")[0]) : 0;
+        return aNights - bNights;
+      });
+    }
+    
+    setFilteredPackages(result);
+  };
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const resetFilters = () => {
+    setFilters({
+      minPrice: "",
+      maxPrice: "",
+      duration: "",
+      sortBy: "default"
+    });
+  };
+
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
   };
 
   if (loading) {
@@ -216,127 +302,206 @@ const Destination_india = () => {
 
                 <p className="text:xl pack-description w-70 text-white">
                   Limited Time Offer! Student Tours for the Next{" "}
-                  <b>6 Months –  Just ₹9,999</b>
+                  <b>6 Months – Just ₹9,999</b>
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Package Section */}
-        <section className="w-full px-4 py-8 sm:px-[6vw] lg:py-14">
-          {travelPackages.length === 0 ? (
-            <div className="w-full h-[400px] flex flex-col justify-center items-center text-center">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-pri_head mb-6">
-                COMING S<span className="text-primary">OO</span>N
-              </h1>
-              <Link
-                to="/"
-                className="bg-primary hover:bg-primary/90 transition text-white text-base sm:text-xl px-6 py-3 rounded-lg shadow-md"
-              >
-                Back to Home
-              </Link>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {travelPackages.map((item) => (
-                <div
-                  key={item._id}
-                  onClick={() => handleClick(item._id)}
-                  className="relative cursor-pointer bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between"
-                >
-                  <div className="">
-                    {/* Image */}
-                    <div className="h-48 overflow-hidden relative">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      {item.duration && (
-                        <div className="absolute bottom-2 right-2 flex items-center bg-white py-1 px-2 rounded font-semibold text-gray-500 text-sm gap-1">
-                          <Clock size={14} />
-                          <span>{item.duration}</span>
-                        </div>
-                      )}
-                    </div>
+        {/* Filter and Package Section */}
+        <section className="w-full px-4 py-8 sm:px-[6vw] lg:py-10">
+          {/* Filter Toggle Button - Only show on mobile */}
+          <div className="flex justify-end mb-6 md:hidden">
+            <button 
+              onClick={toggleFilters}
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg shadow hover:bg-primary/90 transition"
+            >
+              {showFilters ? <X size={18} /> : <Filter size={18} />}
+              {showFilters ? 'Hide Filters' : 'Show Filters'}
+            </button>
+          </div>
 
-                    {/* Content */}
-                    <div className="p-4 pb-0 space-y-2 flex flex-col justify-between ">
-                      <div className="">
-                        <div className="">
-                          <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
-                            {item.name}
-                          </h2>
-                        </div>
-
-                        {item.message_description && (
-                          <div
-                            className="flex flex-row items-start
-                              text-gray-600 text-sm font-semibold gap-1"
-                          >
-                            <div className="mt-1">
-                              <MdMessage size={14} className="mt-0.5" />
-                            </div>
-                            <span>{item.message_description}</span>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        <GiPriceTag size={16} className="text-primary" />
-                        <div className="flex items-center gap-1 text-primary text-lg font-bold">
-                          <div className="h-4 w-auto overflow-hidden shadow-sm">
-                            <img
-                              src={
-                                item.country === "india"
-                                  ? "https://cdn.britannica.com/13/4413-050-98188B5C/Flag-Sri-Lanka.jpg"
-                                  : "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/330px-Flag_of_India.svg.png"
-                              }
-                              alt="country-flag"
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <span>
-                            {item.country === "india" ? "LKR" : "INR"}{" "}
-                            {item.discount_price}
-                          </span>
-                        </div>
-                        <div className="text-xs line-through text-gray-400 font-medium">
-                          {item.country === "india" ? "LKR" : "INR"}{" "}
-                          {item.original_price}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-4 pt-0">
-                    {/* View Button */}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleClick(item._id);
-                      }}
-                      className="w-full mt-2 py-2 text-sm font-semibold bg-primary text-white rounded-lg shadow hover:bg-primary/90 transition flex items-center justify-center gap-2"
-                    >
-                      <Eye size={16} /> View Details
-                    </button>
-                  </div>
-
-                  {/* Discount Badge */}
-                  {item.original_price > item.discount_price && (
-                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow">
-                      {Math.round(
-                        ((item.original_price - item.discount_price) /
-                          item.original_price) *
-                          100
-                      )}
-                      % OFF
-                    </div>
-                  )}
+          <div className="">
+            {/* Filter Panel - Always visible on desktop, conditional on mobile */}
+            <div className={`   ${showFilters ? 'block' : 'hidden'} md:block `}>
+              <h3 className="text-xl font-bold mb-4 text-primary">Filter Packages</h3>
+              
+              <div className="space-x-4 flex w-full">
+                
+                
+                <div className="lg:w-1/2 w-full">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Duration (Nights)
+                  </label>
+                  <select
+                    name="duration"
+                    value={filters.duration}
+                    onChange={handleFilterChange}
+                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary "
+                  >
+                    <option value="">All Durations</option>
+                    <option value="2">2 Nights</option>
+                    <option value="3">3 Nights</option>
+                    <option value="4">4 Nights</option>
+                    <option value="5">5 Nights</option>
+                    <option value="6">6 Nights</option>
+                    <option value="7">7+ Nights</option>
+                  </select>
                 </div>
-              ))}
+                
+                <div className="lg:w-1/2 w-full">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Sort By
+                  </label>
+                  <select
+                    name="sortBy"
+                    value={filters.sortBy}
+                    onChange={handleFilterChange}
+                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  >
+                    <option value="default">Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="duration">Duration: Short to Long</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="flex justify-end mt-4">
+                <button
+                  onClick={resetFilters}
+                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
+                >
+                  Reset Filters
+                </button>
+              </div>
             </div>
-          )}
+
+            {/* Packages Grid */}
+            <div className="w-full">
+              {/* Results Count */}
+              <div className="mb-6">
+                <p className="text-gray-600">
+                  Showing {filteredPackages.length} of {travelPackages.length} packages
+                </p>
+              </div>
+
+              {filteredPackages.length === 0 ? (
+                <div className="w-full h-[400px] flex flex-col justify-center items-center text-center">
+                  <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold font-pri_head mb-6">
+                    No Packages Found
+                  </h1>
+                  <p className="text-gray-600 mb-6">Try adjusting your filters to see more results.</p>
+                  <button
+                    onClick={resetFilters}
+                    className="bg-primary hover:bg-primary/90 transition text-white text-base sm:text-xl px-6 py-3 rounded-lg shadow-md"
+                  >
+                    Reset Filters
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {filteredPackages.map((item) => (
+                    <div
+                      key={item._id}
+                      onClick={() => handleClick(item._id)}
+                      className="relative cursor-pointer bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col justify-between"
+                    >
+                      <div className="">
+                        {/* Image */}
+                        <div className="h-48 overflow-hidden relative">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          />
+                          {item.duration && (
+                            <div className="absolute bottom-2 right-2 flex items-center bg-white py-1 px-2 rounded font-semibold text-gray-500 text-sm gap-1">
+                              <Clock size={14} />
+                              <span>{item.duration}</span>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-4 pb-0 space-y-2 flex flex-col justify-between ">
+                          <div className="">
+                            <div className="">
+                              <h2 className="text-lg font-semibold text-gray-800 line-clamp-1">
+                                {item.name}
+                              </h2>
+                            </div>
+
+                            {item.message_description && (
+                              <div
+                                className="flex flex-row items-start
+                                  text-gray-600 text-sm font-semibold gap-1"
+                              >
+                                <div className="mt-1">
+                                  <MdMessage size={14} className="mt-0.5" />
+                                </div>
+                                <span>{item.message_description}</span>
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <GiPriceTag size={16} className="text-primary" />
+                            <div className="flex items-center gap-1 text-primary text-lg font-bold">
+                              <div className="h-4 w-auto overflow-hidden shadow-sm">
+                                <img
+                                  src={
+                                    item.country === "india"
+                                      ? "https://cdn.britannica.com/13/4413-050-98188B5C/Flag-Sri-Lanka.jpg"
+                                      : "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/330px-Flag_of_India.svg.png"
+                                  }
+                                  alt="country-flag"
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <span>
+                                {item.country === "india" ? "LKR" : "INR"}{" "}
+                                {item.discount_price}
+                              </span>
+                            </div>
+                            <div className="text-xs line-through text-gray-400 font-medium">
+                              {item.country === "india" ? "LKR" : "INR"}{" "}
+                              {item.original_price}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4 pt-0">
+                        {/* View Button */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleClick(item._id);
+                          }}
+                          className="w-full mt-2 py-2 text-sm font-semibold bg-primary text-white rounded-lg shadow hover:bg-primary/90 transition flex items-center justify-center gap-2"
+                        >
+                          <Eye size={16} /> View Details
+                        </button>
+                      </div>
+
+                      {/* Discount Badge */}
+                      {item.original_price > item.discount_price && (
+                        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow">
+                          {Math.round(
+                            ((item.original_price - item.discount_price) /
+                              item.original_price) *
+                              100
+                          )}
+                          % OFF
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </div>
