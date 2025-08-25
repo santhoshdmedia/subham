@@ -35,7 +35,7 @@ const Footer = () => {
     {
       id: 3,
       title: "Tour",
-      path: "/destination",
+      path: "/srilanka-tour-packages",
     },
     {
       id: 5,

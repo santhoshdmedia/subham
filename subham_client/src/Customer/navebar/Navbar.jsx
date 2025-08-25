@@ -65,17 +65,17 @@ const Navbar = () => {
     {
       id: 3,
       name: "Tours",
-      validPaths: ["/destination", "/destination-india"],
+      validPaths: ["/srilanka-tour-packages", "/indian-tour-packages"],
       children: [
         {
           id: 1,
           name: "Top Destination In Sri Lanka",
-          path: "/destination",
+          path: "/srilanka-tour-packages",
         },
         {
           id: 2,
           name: "Top Destination In India",
-          path: "/destination-india",
+          path: "/indian-tour-packages",
         },
       ],
     },
@@ -308,17 +308,17 @@ export const SurpriceNav=()=>{
     {
       id: 3,
       name: "Tours",
-      validPaths: ["/destination", "/destination-india"],
+      validPaths: ["/srilanka-tour-packages", "/indian-tour-packages"],
       children: [
         {
           id: 1,
           name: "Top Destination In Sri Lanka",
-          path: "/destination",
+          path: "/srilanka-tour-packages",
         },
         {
           id: 2,
           name: "Top Destination In India",
-          path: "/destination-india",
+          path: "/indian-tour-packages",
         },
       ],
     },
@@ -511,17 +511,17 @@ export const MaddhaNav=()=>{
     {
       id: 3,
       name: "Tours",
-      validPaths: ["/destination", "/destination-india"],
+      validPaths: ["/srilanka-tour-packages", "/indian-tour-packages"],
       children: [
         {
           id: 1,
           name: "Top Destination In Sri Lanka",
-          path: "/destination",
+          path: "/srilanka-tour-packages",
         },
         {
           id: 2,
           name: "Top Destination In India",
-          path: "/destination-india",
+          path: "/indian-tour-packages",
         },
       ],
     },

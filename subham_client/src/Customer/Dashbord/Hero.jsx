@@ -139,7 +139,7 @@ const Hero = () => {
               <div ref={nextRef} className="cursor-pointer">
                 <ICON_HELPER.RIGHTFILLED_ARROW className="text-3xl text-primary" />
               </div>
-              <Link to="/destination" className="bg-white text-primary font-semibold px-3 py-1 rounded hover:bg-black hover:text-white">
+              <Link to="/srilanka-tour-packages" className="bg-white text-primary font-semibold px-3 py-1 rounded hover:bg-black hover:text-white">
                 More
               </Link>
             </div>

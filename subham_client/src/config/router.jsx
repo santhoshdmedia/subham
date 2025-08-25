@@ -54,14 +54,14 @@ let client_routes = [
     children: [{ path: "/aboutus", element: <About /> }],
   },
   {
-    path: "/destination",
+    path: "/srilanka-tour-packages",
     element: <CustomerLayout />,
-    children: [{ path: "/destination", element: <Destination /> }],
+    children: [{ path: "/srilanka-tour-packages", element: <Destination /> }],
   },
   {
-    path: "/destination-india",
+    path: "/indian-tour-packages",
     element: <CustomerLayout />,
-    children: [{ path: "/destination-india", element: <Destination_india /> }],
+    children: [{ path: "/indian-tour-packages", element: <Destination_india /> }],
   },
   {
     path: "/destination-explore/:id",

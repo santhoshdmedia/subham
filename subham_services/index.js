@@ -19,7 +19,7 @@ const allowedOrigins = [
   'https://www.sailsubham.com',
   'http://62.72.58.252',
   'https://62.72.58.252',
-  'http://localhost:5174'
+  'http://localhost:5173'
 ];
 
 app.use(cors({
