@@ -54,15 +54,25 @@ let client_routes = [
     children: [{ path: "/aboutus", element: <About /> }],
   },
   {
-    path: "/srilanka-tour-packages",
-    element: <CustomerLayout />,
-    children: [{ path: "/srilanka-tour-packages", element: <Destination /> }],
-  },
-  {
-    path: "/indian-tour-packages",
-    element: <CustomerLayout />,
-    children: [{ path: "/indian-tour-packages", element: <Destination_india /> }],
-  },
+  path: "/destination",
+  element: <CustomerLayout />,
+  children: [{ path: "/destination", element: <div>Redirecting...</div> }],
+},
+{
+  path: "/destination-india",
+  element: <CustomerLayout />,
+  children: [{ path: "/destination-india", element: <div>Redirecting...</div> }],
+},
+{
+  path: "/srilanka-tour-packages",
+  element: <CustomerLayout />,
+  children: [{ path: "/srilanka-tour-packages", element: <Destination /> }],
+},
+{
+  path: "/indian-tour-packages",
+  element: <CustomerLayout />,
+  children: [{ path: "/indian-tour-packages", element: <Destination_india /> }],
+},
   {
     path: "/destination-explore/:id",
     element: <CustomerLayout />,

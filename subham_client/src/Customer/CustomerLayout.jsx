@@ -1,16 +1,22 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Navbar, { SurpriceNav, MaddhaNav } from "./navebar/Navbar";
 import Footer from "./footer/Footer";
-// import { ImageGallery } from "./pages/surprice/Surprice";
-import Vasan from "./surprice/Vasan";
 import { ParallaxProvider } from "react-scroll-parallax";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CustomerLayout = () => {
   const location = useLocation();
   const [showFooter, setShowFooter] = useState(true);
+  const navigate = useNavigate();
 
-  // Check if current route is 'surprice'
+  // Define route checks first
+  const isDestinationRoute = ["destination"].some((route) =>
+    location.pathname.includes(route)
+  );
+  const isDestinationIndiaRoute = ["destination-india"].some((route) =>
+    location.pathname.includes(route)
+  );
+
   const isSurpriceRoute = [
     "payanam/groupmadhu",
     "vasan-tour-package",
@@ -20,9 +26,11 @@ const CustomerLayout = () => {
     "new-login",
     "vaibhavam",
   ].some((route) => location.pathname.includes(route));
+
   const isSpecialRoute = ["new-register", "new-login", "madha-register"].some(
     (route) => location.pathname.includes(route)
   );
+
   const StuRoute = ["students-tour"].some((route) =>
     location.pathname.includes(route)
   );
@@ -30,6 +38,16 @@ const CustomerLayout = () => {
   const isMadha = ["payanam/groupmadhu", "madha-register", "new-login"].some(
     (route) => location.pathname.includes(route)
   );
+
+  // Handle redirects
+  useEffect(() => {
+    if (isDestinationRoute) {
+      navigate("/srilanka-tour-packages");
+    }
+    if (isDestinationIndiaRoute) {
+      navigate("/indian-tour-packages");
+    }
+  }, [navigate, isDestinationRoute, isDestinationIndiaRoute]);
 
   return (
     <div>
@@ -46,11 +64,14 @@ const CustomerLayout = () => {
           <Navbar />
         )}
       </div>
-      <ParallaxProvider>{<Outlet />}</ParallaxProvider>
+
+      <ParallaxProvider>
+        <Outlet />
+      </ParallaxProvider>
+
       {/* Hide footer for surprise route */}
       <div className={`${isSpecialRoute || StuRoute ? "hidden" : ""}`}>
-        
-      {!isSurpriceRoute && <Footer />}
+        {!isSurpriceRoute && <Footer />}
       </div>
     </div>
   );
