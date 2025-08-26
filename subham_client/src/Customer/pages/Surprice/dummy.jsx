@@ -57,43 +57,7 @@ const images = [
 ];
 
 const travelPackages = [
-  {
-    name: "BATCH-1 (VAIBAVAM)",
-    image: "https://msmwebfiles.s3.amazonaws.com/1752068189731.jpg",
-    original_price: 28000,
-    discount_price: 22500,
-    message_description: "28 July – 31 July (Devotional Yatra) ",
-    duration: "3 Nights / 4 Days",
-    location: "Jaffna",
-    contact: "+91 9087143535",
-    description: "Nallur Kandhaswamy Temple, located in Jaffna, Sri Lanka, is one of the most revered Hindu temples dedicated to Lord Murugan (Skanda), the god of war and wisdom...",
-    route:"https://sailsubham.com/destination-explore/686e676356765efca613ddca"
-  },
-  {
-    name: "BATCH-2 (VAIBAVAM)",
-    image: "https://msmwebfiles.s3.amazonaws.com/1752210445320.jpg",
-    original_price: 30000,
-    discount_price: 25000,
-    message_description: "15 Aug – 18 Aug (Devotional Yatra) ",
-    duration: "3 Nights / 4 Days",
-    location: "Jaffna",
-    contact: "+91 9087143535",
-    description: "Nallur Kandhaswamy Temple, located in Jaffna, Sri Lanka, is one of the most revered Hindu temples dedicated to Lord Murugan (Skanda), the god of war and wisdom...",
-    route:"https://sailsubham.com/destination-explore/686e72af56765efca6141ad6"
-  },
-  {
-    name: "BATCH-3 (VAIBAVAM)",
-    image: "https://msmwebfiles.s3.amazonaws.com/1752215724835.jpg",
-    original_price: 28000,
-    discount_price: 22500,
-    message_description: "18 Aug – 21 Aug (Devotional Yatra) ",
-    duration: "3 Nights / 4 Days",
-    location: "Jaffna",
-    contact: "+91 9087143535",
-    description: "Nallur Kandhaswamy Temple, located in Jaffna, Sri Lanka, is one of the most revered Hindu temples dedicated to Lord Murugan (Skanda), the god of war and wisdom...",
-    route:"https://sailsubham.com/destination-explore/686f580956765efca6161a4d"
 
-  },
   {
     name: "BATCH-4 (VAIBAVAM)",
     image: "https://msmwebfiles.s3.amazonaws.com/1752215696955.jpg",

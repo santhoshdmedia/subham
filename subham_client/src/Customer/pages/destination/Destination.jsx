@@ -74,7 +74,7 @@ const Destination_india = () => {
   }, []);
 
   const handleClick = (id) => {
-    navigation(`/destination-explore/${id}`);
+    navigation(`/srilanka-tour-packages/${id}`);
   };
 
   const applyFilters = () => {

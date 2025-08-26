@@ -68,7 +68,7 @@ const Hero = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleClick = (id) => navigation(`/destination-explore/${id}`);
+  const handleClick = (id,location) => navigation(`/${location=="Sri Lanka"?"srilanka-tour-packages":"indian-tour-packages"}/${id}`);
 
   if (loading) {
     return (
@@ -171,7 +171,7 @@ const Hero = () => {
             {travelPackages.map((item) => (
               <SwiperSlide key={item._id} className="bg-transparent group">
                 <div 
-                  onClick={() => handleClick(item._id)} 
+                  onClick={() => handleClick(item._id,item.location)} 
                   className="relative h-[310px] overflow-hidden bg-cover bg-center cursor-pointer group-hover:scale-105 transition-transform" 
                   style={{ backgroundImage: `url(${item.image})` }}
                 >
