@@ -36,7 +36,7 @@ const Destination_india = () => {
   }, []);
 
   const handleClick = (id) => {
-    navigation(`/destination-explore/${id}`);
+    navigation(`/indian-tour-packages/${id}`);
   };
 
   if (loading) {

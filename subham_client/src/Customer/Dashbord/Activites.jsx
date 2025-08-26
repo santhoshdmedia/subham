@@ -125,7 +125,7 @@ const Activites = () => {
                         </div>
                         <div className="pt-1">
                           <Link
-                            to={`/destination-explore/${res._id}`}
+                            to={`/srilanka-tour-packages/${res._id}`}
                             className="bg-black text-white font-pri_para font-semibold cursor-pointer px-3 py-2 rounded"
                           >
                             View <span className="text-primary">M</span>ore
