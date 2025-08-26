@@ -102,7 +102,7 @@ const DestinationDetails = () => {
                   Home
                 </Link>
                 <ICON_HELPER.RIGHT_ARROW />
-                <span className="font-title text-sky-500">{destination.name || ""}</span>
+                <span className="font-pri_head text-sky-500">{destination.name || ""}</span>
               </p>
               <h1 className="text-3xl sm:text-4xl font-semibold text-white font-pri_head tracking-wide">{destination.name || ""}</h1>
               <p className="text-sm sm:text-base md:text-lg text-primary font-pri_para">Book Your Travel Package!</p>
