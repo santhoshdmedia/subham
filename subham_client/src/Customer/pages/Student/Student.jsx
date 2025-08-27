@@ -665,17 +665,17 @@ const Student = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
+      {/* <header className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-1  lg:py-3">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
-              <div>
+              <Link to={'/'}>
                 <img
                   src={IMAGE_HELPER.SubhamLogo}
                   alt="logo"
                   className="w-[70px] md:w-[140px]"
                 />
-              </div>
+              </Link>
             </div>
 
             <div className="flex gap-2  items-center justify-end lg:justify-center ">
@@ -703,7 +703,7 @@ const Student = () => {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Hero Section */}
       <section className="relative lg:py-20 py-8  text-white bg-cover bg-center h-[90vh] lg:h-[80vh]">

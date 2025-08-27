@@ -53,7 +53,7 @@ const CustomerLayout = () => {
     <div>
       <div
         className={`sticky top-0 !z-50 ${
-          isSpecialRoute || StuRoute ? "hidden" : ""
+          isSpecialRoute  ? "hidden" : ""
         }`}
       >
         {isMadha ? (
