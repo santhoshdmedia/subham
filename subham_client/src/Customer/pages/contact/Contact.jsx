@@ -127,7 +127,7 @@ const Contact = () => {
                   Home
                 </Link>
                 <ICON_HELPER.RIGHT_ARROW />
-                <span className="font-title text-sky-500">Contact</span>
+                <span className="font-pri_head text-sky-500">Contact</span>
               </p>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-left text-white font-bold font-pri_head">
                 Contact

@@ -123,7 +123,7 @@ const Vaibhamvam = () => {
                   Home
                 </Link>
                 <ICON_HELPER.RIGHT_ARROW /> */}
-                <span className="font-title text-sky-500">
+                <span className="font-pri_head text-sky-500">
                   {destination.name || ""}
                 </span>
               </p>

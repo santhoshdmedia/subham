@@ -41,7 +41,7 @@ India Sri Lanka sea travel, Ferry service provider India, Trusted Sri Lanka tour
                   Home
                 </Link>
                 {<ICON_HELPER.RIGHT_ARROW />}
-                <span className="font-title text-sky-500">About Us</span>
+                <span className="font-pri_head text-sky-500">About Us</span>
               </p>
 
               <h1 className="text-2xl sm:text-3xl text-left text-white font-bold font-pri_head">
