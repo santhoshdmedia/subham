@@ -66,7 +66,7 @@ const Destination_india = () => {
       </Helmet>
       <div className="bg-gray-50">
         {/* Banner */}
-        <div className="relative w-full h-[250px] sm:h-[300px] md:h-[600px]">
+        <div className="relative w-full h-[250px] sm:h-[300px] md:h-[450px]">
           <img
             src={India}
             alt="Banner"
