@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { CaretRightOutlined } from "@ant-design/icons";
 
+
 const { useToken } = theme;
 
 const DestinationDetails = () => {
@@ -93,11 +94,13 @@ const DestinationDetails = () => {
     <Spin spinning={loading}>
       <div className="w-full font-primary_font">
         {/* Banner Section */}
-        <div className="relative w-full h-[600px] md:h-[400px]">
-          <img src={IMAGE_HELPER.BannerBgImage} alt="Banner" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className={`relative w-full h-[600px] md:h-[600px] ${destination.country === "india"?"India_bg":"Srilanka_bg"}`}>
+          <div className="absolute inset-0   flex items-center justify-center bg-black bg-opacity-50">
+            
+          </div>
+          <div className="absolute inset-0 top-[-12rem]  flex items-center justify-center">
             <div className="text-center px-4 md:px-8 space-y-2">
-              <p className="font-pri_para text-white flex justify-center gap-2">
+              <p className="font-pri_para text-white flex justify-center gap-2 ">
                 <Link to="/" className="hover:text-primary">
                   Home
                 </Link>
@@ -105,7 +108,7 @@ const DestinationDetails = () => {
                 <span className="font-pri_head text-sky-500">{destination.name || ""}</span>
               </p>
               <h1 className="text-3xl sm:text-4xl font-semibold text-white font-pri_head tracking-wide">{destination.name || ""}</h1>
-              <p className="text-sm sm:text-base md:text-lg text-primary font-pri_para">Book Your Travel Package!</p>
+              <p className="text-sm sm:text-base md:text-lg text-primary font-pri_para ">Book Your Travel Package!</p>
             </div>
           </div>
         </div>

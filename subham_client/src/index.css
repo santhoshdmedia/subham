@@ -300,3 +300,13 @@ body {
   font-size: 16px;
   background-color: #f9fafb;
 }
+
+
+.Srilanka_bg{
+  background: url('assets/image/sriLanka_bg.webp') 40% 10% no-repeat ;
+  background-size: cover;
+}
+.India_bg{
+  background: url('assets/image/india_bg.webp') 50% 10% no-repeat ;
+  background-size: cover;
+}

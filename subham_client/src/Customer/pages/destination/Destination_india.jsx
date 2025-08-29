@@ -9,6 +9,7 @@ import { Clock, Eye } from "lucide-react";
 import { MdMessage } from "react-icons/md";
 import { GiPriceTag } from "react-icons/gi";
 import { Helmet } from "react-helmet-async";
+import India from "../../../assets/image/india_main_bg.webp"
 const Destination_india = () => {
   const [travelPackages, setTravelPackages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -65,9 +66,9 @@ const Destination_india = () => {
       </Helmet>
       <div className="bg-gray-50">
         {/* Banner */}
-        <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px]">
+        <div className="relative w-full h-[250px] sm:h-[300px] md:h-[600px]">
           <img
-            src={IMAGE_HELPER.india}
+            src={India}
             alt="Banner"
             className="w-full h-full object-cover"
           />
