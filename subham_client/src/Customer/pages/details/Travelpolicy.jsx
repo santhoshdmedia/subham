@@ -172,12 +172,7 @@ const Travelpolicy = () => {
     </li>
     <li className="text-lg text-gray-700 mt-2">
       Travelers from the following countries can also avail visa-free or
-      facilitated entry: Australia, Austria, Bahrain, Belarus, Belgium,
-      Canada, China, Denmark, France, Germany, Indonesia, Italy, Iran,
-      Israel, Japan, Kazakhstan, Malaysia, Nepal, New Zealand, Oman,
-      Poland, Qatar, Russia, Saudi Arabia, South Korea, Spain, Sweden,
-      Switzerland, Thailand, the Czech Republic, the Netherlands, the
-      UAE, the UK, and the US.
+      facilitated entry: India China Indonesia Japan Russia Thailand Malaysia.
     </li>
     <li className="text-lg text-gray-700 mt-2">
       For bookings made within 10 days of departure, is consider as late
