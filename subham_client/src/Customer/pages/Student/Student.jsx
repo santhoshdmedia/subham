@@ -63,6 +63,8 @@ import dambula from "../../../assets/student/student/dambula.webp";
 import university from "../../../assets/student/student/university.webp";
 import lib from "../../../assets/student/student/librarey.jpg";
 import Beachchill from "../../../assets/student/student/beach_chil.jpg";
+import { Helmet } from "react-helmet-async";
+
 // mail
 const Stumail = () => {
   const [formData, setFormData] = useState({
@@ -664,6 +666,18 @@ const Student = () => {
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+       <Helmet>
+        <title>Students Tour Package Sri Lanka | 2N/3D Trip from ₹9,999 | SailSubham</title>
+        <meta
+          name="description"
+          content="Book SailSubham Students Tour Package to Sri Lanka! 2N/3D trip with ferry, hotel stay, breakfast & AC transport—all for just ₹9,999. Perfect for student groups."
+        />
+        <meta
+          name="keywords"
+          content="students tour package Sri Lanka, student group travel Sri Lanka, 2 nights 3 days Sri Lanka trip, SailSubham student package, affordable Sri Lanka tour, ferry trip Sri Lanka students, Sri Lanka educational tour, student holiday package ₹9,999.
+"
+        />
+      </Helmet>
       {/* Header */}
       {/* <header className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-1  lg:py-3">
@@ -714,7 +728,6 @@ const Student = () => {
             slidesPerView={1}
             loop={true}
             autoplay={{
-              // lowercase 'a' and object format
               delay: 4000,
               disableOnInteraction: false,
             }}
