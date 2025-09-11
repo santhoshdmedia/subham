@@ -7,9 +7,9 @@ require("dotenv").config();
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: "dmvc40kyp",
-  api_key: "753129661365923",
-  api_secret: "6ElCTLSl3stnTo1C6wPomXIMtJU",
+  cloud_name: "dfqojxpiq",
+  api_key: "434153945326732",
+  api_secret: "C8FXMYUZLBzvW2tMCA0jnXCuMKc",
   secure: true
 });
 
