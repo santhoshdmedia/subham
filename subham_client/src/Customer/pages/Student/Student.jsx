@@ -548,31 +548,31 @@ const testimonials = [
 
 const Slides = [
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141390/Subham/1754141390563.webp",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575700/Subham/1757575697689.jpg",
     caption: "Jafna Fort",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754295380/Subham/1754295379867.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575709/Subham/1757575706823.jpg",
     caption: "Jafna Public Librarey",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141492/Subham/1754141492161.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591813/Subham/1757591811190.webp",
     caption: "Dambakolapatuna Port",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141605/Subham/1754141605117.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575756/Subham/1757575752274.jpg",
     caption: "Keerimalai Springs ",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141664/Subham/1754141663778.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575683/Subham/1757575679802.webp",
     caption: "Nallur Kandaswamy Kovil",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141795/Subham/1754141794892.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575644/Subham/1757575640117.webp",
     caption: "Point Pedro",
   },
   {
-    src: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1754141858/Subham/1754141857466.jpg",
+    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591528/Subham/1757591525684.jpg",
     caption: "University of Jaffna / Farm visit",
   },
 ];

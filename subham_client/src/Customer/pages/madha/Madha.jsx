@@ -254,49 +254,49 @@ const testimonials = [
 const Top_attractions = [
   {
     name: "Jaffna Fort",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182296/Subham/1756182295579.jpg",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575700/Subham/1757575697689.jpg",
     description:
       "Jaffna Fort, located near the Jaffna Lagoon in northern Sri Lanka, is a historic Dutch fort that stands as a powerful reminder of the island's colonial past.",
     _id: "687b51baab00690f1d74a5f7",
   },
   {
     name: "St. Mary's Cathedral",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182366/Subham/1756182365169.jpg",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573270/Subham/1757573267451.jpg",
     description:
       "St. Mary's Cathedral, also affectionately known as Periye Kovil, stands as the majestic seat of the Roman Catholic Diocese of Jaffna in Gurunagar.",
     _id: "687b51baab00690f1d74a5f8",
   },
   {
     name: " Jaffna Public Library",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1755837164/Subham/1755837163544.jpg",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575709/Subham/1757575706823.jpg",
     description:
       "The Jaffna Public Library, known as Yāḻ potu nūlakam in Tamil, stands as one of Sri Lanka’s cultural landmarks, deeply woven into the Tamil community's intellectual identity.",
     _id: "687b3254ab00690f1d71d25c",
   },
   {
     name: "St. Anthony's Church",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182460/Subham/1756182459591.webp",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573289/Subham/1757573286917.webp",
     description:
       "St. Anthony’s Church (Passaiyoor), Jaffna is a historic Roman Catholic shrine built in 1911, famous for its open-pillared façade and coastal setting in the Passaiyoor suburb of Jaffna.",
     _id: "687b7aedab00690f1d77758d",
   },
   {
     name: "Madhu Madha Church ",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182872/Subham/1756182871392.webp",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573324/Subham/1757573321925.webp",
     description:
       "Shrine of Our Lady of Madhu (Madhu Madha Church) in Mannar is Sri Lanka’s holiest Catholic Marian shrine and a revered site of unity, healing, and faith.",
     _id: "687b7aedab00690f1d777590",
   },
   {
     name: "Mannar Fort ",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182502/Subham/1756182501023.jpg",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573300/Subham/1757573298392.jpg",
     description:
       "Mannar Fort, built by the Portuguese in 1560 and later expanded by the Dutch, is a coastal fort on Mannar Island known for its coral-stone walls and square bastions.",
     _id: "687b7aedab00690f1d77758e",
   },
   {
     name: "Talaimannar Pier",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182820/Subham/1756182819118.webp",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573312/Subham/1757573309683.jpg",
     description:
       "The historic location where the ferry service between Sri Lanka and India once operated. The pier offers scenic views of the Palk Strait.",
     _id: "6819960e4fe9627fcb722be3",
@@ -310,7 +310,7 @@ const Top_attractions = [
   },
   {
     name: "Keerimalai Springs ",
-    image: "https://res.cloudinary.com/dmvc40kyp/image/upload/v1756182908/Subham/1756182906905.jpg",
+    image: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757573333/Subham/1757573330869.jpg",
     description:
       "Keerimalai Springs, also known as the Keerimalai Holy Pond, is a sacred freshwater spring located about 20–25 km north of Jaffna.",
     _id: "687b7aedab00690f1d777591",
