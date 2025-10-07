@@ -3,6 +3,7 @@ import Navbar, { SurpriceNav, MaddhaNav } from "./navebar/Navbar";
 import Footer from "./footer/Footer";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { useEffect, useState } from "react";
+import Student from "./pages/Student/Student";
 
 const CustomerLayout = () => {
   const location = useLocation();
@@ -51,7 +52,7 @@ const CustomerLayout = () => {
 
   return (
     <div>
-      <div
+      {/* <div
         className={`sticky top-0 !z-50 ${
           isSpecialRoute  ? "hidden" : ""
         }`}
@@ -70,9 +71,10 @@ const CustomerLayout = () => {
       </ParallaxProvider>
 
       {/* Hide footer for surprise route */}
-      <div className={`${isSpecialRoute || StuRoute ? "hidden" : ""}`}>
+      {/* <div className={`${isSpecialRoute || StuRoute ? "hidden" : ""}`}>
         {!isSurpriceRoute && <Footer />}
-      </div>
+      </div> */} 
+      <Student/>
     </div>
   );
 };
