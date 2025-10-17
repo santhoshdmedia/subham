@@ -65,6 +65,12 @@ import lib from "../../../assets/student/student/librarey.jpg";
 import Beachchill from "../../../assets/student/student/beach_chil.jpg";
 import { Helmet } from "react-helmet-async";
 
+import jafnaFort from "../../../assets/student/attratctions/jafna.jpg";
+import jafnaLibrarey from "../../../assets/student/attratctions/jafnaLib.jpg";
+import keerimalai from "../../../assets/student/attratctions/keeri.jpg";
+import nallur from "../../../assets/student/attratctions/nallur.jpg";
+import pointpetro from "../../../assets/student/attratctions/pointpetro.jpg";
+
 // mail
 const Stumail = () => {
   const [formData, setFormData] = useState({
@@ -548,33 +554,33 @@ const testimonials = [
 
 const Slides = [
   {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575700/Subham/1757575697689.jpg",
+    src: jafnaFort,
     caption: "Jafna Fort",
   },
   {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575709/Subham/1757575706823.jpg",
+    src: jafnaLibrarey,
     caption: "Jafna Public Librarey",
   },
+  // {
+  //   src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591813/Subham/1757591811190.webp",
+  //   caption: "Dambakolapatuna Port",
+  // },
   {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591813/Subham/1757591811190.webp",
-    caption: "Dambakolapatuna Port",
-  },
-  {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575756/Subham/1757575752274.jpg",
+    src: keerimalai,
     caption: "Keerimalai Springs ",
   },
   {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575683/Subham/1757575679802.webp",
+    src: nallur,
     caption: "Nallur Kandaswamy Kovil",
   },
   {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757575644/Subham/1757575640117.webp",
+    src: pointpetro,
     caption: "Point Pedro",
   },
-  {
-    src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591528/Subham/1757591525684.jpg",
-    caption: "University of Jaffna / Farm visit",
-  },
+  // {
+  //   src: "https://res.cloudinary.com/dfqojxpiq/image/upload/v1757591528/Subham/1757591525684.jpg",
+  //   caption: "University of Jaffna / Farm visit",
+  // },
 ];
 const Student = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
